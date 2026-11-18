@@ -2,7 +2,9 @@ bin/
 data/
 kaggle/build/
 bench/raw/
-paper/
+paper/*
+!paper/make_numbers.py
+!paper/make_figures.py
 docs/private/
 __pycache__/
 *.pyc
