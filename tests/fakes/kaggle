@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+"""Fake kaggle CLI for the dry-run test: runs pushed scripts locally."""
+import json, os, shutil, subprocess, sys
+STATE = os.environ["FAKE_KAGGLE_STATE"]
+a = sys.argv[1:]
+def kdir(kid): return os.path.join(STATE, kid.replace("/", "__"))
+if a[:2] == ["config", "view"]:
+    print("- username: tester"); sys.exit(0)
+if a[:2] == ["kernels", "push"] and "--help" in a:
+    print("usage: kaggle kernels push [-p FOLDER] [--accelerator ACCELERATOR]"); sys.exit(0)
+if a[:2] == ["kernels", "push"]:
+    d = a[a.index("-p") + 1]
+    meta = json.load(open(os.path.join(d, "kernel-metadata.json")))
+    assert meta["code_file"] == "run.py" and meta["machine_shape"] == "NvidiaTeslaT4"
+    assert not meta["id"].startswith("anonymous/")
+    k = kdir(meta["id"]); shutil.rmtree(k, ignore_errors=True); os.makedirs(k)
+    # only code_file is uploaded
+    shutil.copy(os.path.join(d, meta["code_file"]), os.path.join(k, "run.py"))
+    env = dict(os.environ, MDMS_KAGGLE_WORKING=os.path.join(k, "working"),
+               MDMS_KAGGLE_TEMP=os.path.join(k, "temp"))
+    os.makedirs(env["MDMS_KAGGLE_WORKING"]); os.makedirs(env["MDMS_KAGGLE_TEMP"])
+    r = subprocess.run([sys.executable, os.path.join(k, "run.py")], cwd=os.path.join(k, "temp"), env=env,
+                       capture_output=True, text=True)
+    json.dump({"status": "complete" if r.returncode == 0 else "error"}, open(os.path.join(k, "status.json"), "w"))
+    print(f"Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/{meta['id']}")
+    sys.exit(0)
+if a[:2] == ["kernels", "status"]:
+    k = kdir(a[2])
+    if not os.path.exists(os.path.join(k, "status.json")):
+        print("404 - Not Found", file=sys.stderr); sys.exit(1)
+    st = json.load(open(os.path.join(k, "status.json")))["status"]
+    print(f'{a[2]} has status "KernelWorkerStatus.{st.upper()}"'); sys.exit(0)
+if a[:2] == ["kernels", "output"]:
+    k = kdir(a[2]); out = a[a.index("-p") + 1]
+    shutil.copytree(os.path.join(k, "working"), out, dirs_exist_ok=True); sys.exit(0)
+print("fake kaggle: unsupported", a, file=sys.stderr); sys.exit(2)

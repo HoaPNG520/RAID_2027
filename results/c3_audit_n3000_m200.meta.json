@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "audit/c3_audit.py",
+    "--data-dir",
+    "/home/claude/work/data",
+    "--out",
+    "results/c3_audit_n3000_m200.csv",
+    "--n",
+    "3000",
+    "--m",
+    "200"
+  ],
+  "n": 3000,
+  "m": 200,
+  "seed": 0,
+  "datasets": [
+    "cwru_IR007",
+    "cwru_OR007",
+    "cwru_B007",
+    "cwru_normal",
+    "syn_sine_noise",
+    "syn_random_walk",
+    "syn_impulse_train"
+  ],
+  "seconds": 149.56111216545105
+}

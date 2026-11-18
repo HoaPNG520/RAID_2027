@@ -1,0 +1,13 @@
+bin/
+data/
+kaggle/build/
+bench/raw/
+paper/
+docs/private/
+__pycache__/
+*.pyc
+*.o
+*.f64
+*.f32
+*.i32
+!results/**
