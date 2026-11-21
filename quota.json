@@ -45,6 +45,15 @@
       "status": "complete",
       "gpu_hours": 0.141,
       "finished_utc": "2026-11-21T23:47:04.068197+00:00"
+    },
+    {
+      "job_id": "cupy-20261121T234719Z-e41847a1",
+      "job": "cupy",
+      "kernel": "haphngngcgia/mdms-cupy",
+      "sha": "e41847a1dc21cc22db94f8feb71c70b6b51d61b2",
+      "status": "complete",
+      "gpu_hours": 0.0176,
+      "finished_utc": "2026-11-21T23:48:55.872148+00:00"
     }
   ]
 }

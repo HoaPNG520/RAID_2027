@@ -1,0 +1,17 @@
+job cupy: commit e41847a1dc on kaggle/cupy-1; estimate 0.25 GPU-h; used this week 0.29/20.0 h
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/haphngngcgia/mdms-cupy 
+[23:47:22] haphngngcgia/mdms-cupy: queued
+[23:47:42] haphngngcgia/mdms-cupy: running
+[23:48:13] haphngngcgia/mdms-cupy: running
+[23:48:53] haphngngcgia/mdms-cupy: complete
+
+status: complete; outputs: /home/runner/work/RAID_2027/RAID_2027/bench/raw/cupy-20261121T234719Z-e41847a1
+  git clone --quiet --branch kaggle/cupy-1 rc=0 0.867s
+  git checkout --quiet e41847a1dc21cc22db9 rc=0 0.016s
+  build                                    rc=0 8.034s
+  agree_gpu_vs_twin                        rc=0 48.14s
+  cupy_install                             rc=0 4.524s
+  cupy_check                               rc=1 1.768s
+PROBLEMS:
+  - step cupy_check rc=1 timed_out=False log=05_cupy_check.log
+  - runner reported ok=false
