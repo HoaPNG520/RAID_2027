@@ -9,6 +9,9 @@ This repository accompanies a paper under review. It contains:
   - `slew`: a declared slew-rate limit, optionally intersected with a declared range
   - `opt_center=True`: the optimal-centre variance bound
 - **`src/`**: the CUDA implementation (`mdms_gpu.cu`) and a CPU twin (`mdms_twin.cpp`) compiled from the same per-diagonal code (`mdms_core.cuh`). Precision modes are `f64` (reference) and `f32c` (Kahan-compensated float32 with exact re-seeding, the production mode), with `f32` as an ablation.
+- **`gpu/mdms_cupy.py`**: run the same CUDA kernels from Python (CuPy, nvcc backend):
+  `P, I = lb_profile(T, m, precision="f32c", vlimits="declared", limits=(lo, hi))`. Checked on a
+  Tesla T4 against the C++ binary (identical in f32c, within 1e-12 in f64, identical indices).
 - **`audit/`**: the admissibility audit:
   - `c3_audit.py`: every pair of windows against the exact distance of the complete series
   - `t7_counterexample.py`: counterexamples
@@ -38,6 +41,9 @@ python3 -I c2/c2_experiment.py --data-dir data --out results/c2/c2_cwru.csv \
 
 ## GPU (Kaggle T4)
 
+From GitHub: push a branch `kaggle/<job>-<n>` (needs the repository secret `KAGGLE_API_TOKEN` and
+variable `KAGGLE_USERNAME`); results land on the branch `gpu-results`. Or locally:
+
 ```
 make all                                          # needs nvcc; builds bin/mdms_gpu (sm_75)
 export KAGGLE_USERNAME=<your kaggle username>
@@ -45,6 +51,8 @@ python3 kaggle/kaggle_job.py list
 python3 kaggle/kaggle_job.py run smoke --approved     # build, unit tests, compute-sanitizer, GPU vs CPU twin
 python3 kaggle/kaggle_job.py run validate --approved  # T5/T6 and float32 numerics on the GPU
 python3 kaggle/kaggle_job.py run bench --approved     # speed, both T4s in parallel
+python3 kaggle/kaggle_job.py run bench2 --approved    # window lengths 50/200, fair STUMPY comparison
+python3 kaggle/kaggle_job.py run cupy --approved      # CuPy launcher vs. the C++ binary
 ```
 
 `kaggle_job.py` does the following:
