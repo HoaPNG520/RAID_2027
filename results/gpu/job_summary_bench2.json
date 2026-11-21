@@ -1,0 +1,61 @@
+{
+  "job_id": "bench2-20261121T233731Z-3cfaef5e",
+  "job": "bench2",
+  "requested_sha": "3cfaef5ed450bb0b24c921e01e93f10259164133",
+  "branch": "kaggle/bench2-1",
+  "started_unix": 1795304257.840533,
+  "steps": [
+    {
+      "cmd": "git clone --quiet --branch kaggle/bench2-1 <repository> /kaggle/temp/repo",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 0.668,
+      "log": "00_clone.log"
+    },
+    {
+      "cmd": "git checkout --quiet 3cfaef5ed450bb0b24c921e01e93f10259164133",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 0.016,
+      "log": "01_checkout.log"
+    },
+    {
+      "cmd": "make all",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 7.884,
+      "log": "02_build.log",
+      "name": "build"
+    },
+    {
+      "cmd": "pip install -q stumpy || true",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 3.924,
+      "log": "03_stumpy.log",
+      "name": "stumpy"
+    },
+    {
+      "cmd": "mkdir -p out && ((python3 -I gpu/bench.py --suite speed2 --gpu bin/mdms_gpu --out out/speed2_d0.jsonl --device 0 --shard 0/2 > out/speed2_d0.log 2>&1 && python3 -I gpu/bench.py --suite stumpy_fair --gpu bin/mdms_gpu --out out/stumpy_fair.jsonl --device 0 > out/stumpy_fair.log 2>&1) & p0=$!; python3 -I gpu/bench.py --suite speed2 --gpu bin/mdms_gpu --out out/speed2_d1.jsonl --device 1 --shard 1/2 > out/speed2_d1.log 2>&1 & p1=$!; wait $p0; r0=$?; wait $p1; r1=$?; exit $((r0 | r1)))",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 494.907,
+      "log": "04_speed2_and_stumpy_fair.log",
+      "name": "speed2_and_stumpy_fair"
+    }
+  ],
+  "ok": true,
+  "gpus": [
+    "Tesla T4, 15360 MiB, 580.178.04",
+    "Tesla T4, 15360 MiB, 580.178.04"
+  ],
+  "nvcc_version": [
+    "Build cuda_13.0.r13.0/compiler.36424714_0"
+  ],
+  "python": "3.13.16",
+  "checked_out_sha": "3cfaef5ed450bb0b24c921e01e93f10259164133",
+  "collected": [
+    "out/"
+  ],
+  "seconds": 507.467
+}

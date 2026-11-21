@@ -331,6 +331,32 @@ if os.path.exists(t8g):
     put("TEGpuPlainSlackAbove", str(sum(r["rows_above_f64"] for r in T8 if r["precision"] == "f32"
                                        and r["centered"] and r["slack_rel"] == 0.001)))
 
+# ---------------- bench2: window lengths, f64 at 2^18, fair STUMPY comparison ----------------
+s2 = []
+for fn in ("speed2_d0.jsonl", "speed2_d1.jsonl"):
+    p_ = os.path.join(RES, "gpu", fn)
+    if os.path.exists(p_):
+        s2 += [json.loads(l) for l in open(p_) if l.strip()]
+if s2:
+    big = [r for r in s2 if r["mode"] == "mdms" and r["n"] == 2 ** 20]
+    put("SpTwoMinGps", f"{min(r['gpairs_per_s'] for r in big):.1f}")
+    put("SpTwoMaxGps", f"{max(r['gpairs_per_s'] for r in big):.1f}")
+    put("SpTwoMs", ", ".join(str(m) for m in sorted(set(r["m"] for r in big))))
+    f64 = [r for r in s2 if r["mode"] == "mdms" and r["precision"] == "f64"][0]
+    put("SpFSixtyFourBigN", fmt_int(f64["n"]))
+    put("SpFSixtyFourBigSec", f"{f64['kernel_ms'] / 1000:.0f}")
+sf = os.path.join(RES, "gpu", "stumpy_fair.jsonl")
+if os.path.exists(sf):
+    F = [json.loads(l) for l in open(sf) if l.strip()]
+    for r, tag in zip(sorted(F, key=lambda r: r["n"]), ("Small", "Mid", "Big")):
+        put(f"SfN{tag}", fmt_int(r["n"]))
+        put(f"SfStumpy{tag}", f"{r['stumpy_wall_s']:.1f}")
+        put(f"SfOurs{tag}", f"{r['ours_stomp_f64_wall_s']:.2f}" if r["ours_stomp_f64_wall_s"] < 1 else f"{r['ours_stomp_f64_wall_s']:.1f}")
+        put(f"SfRatio{tag}", f"{r['stumpy_wall_s'] / r['ours_stomp_f64_wall_s']:.1f}")
+    put("SfMaxDiff", sci(max(r["profile_max_abs_diff"] for r in F)))
+    put("SfIdxEq", "all" if all(r["index_equal_frac"] == 1.0 for r in F) else "not all")
+    put("SfVersion", F[0]["stumpy_version"])
+
 # ---------------- GPU validation (smoke + validate jobs) ----------------
 ag = os.path.join(RES, "gpu", "agree_smoke.jsonl")
 if os.path.exists(ag):
