@@ -1,0 +1,23 @@
+{"mode": "mdms", "precision": "f32c", "n": 16384, "m": 100, "kernel_ms": 60.178913, "total_ms": 687.792793, "gpairs_per_s": 2.196545, "pairs": 132185670, "device": "Tesla T4", "backend": "cuda", "wall_s": 0.9613015651702881}
+{"mode": "mdms", "precision": "f32", "n": 16384, "m": 100, "kernel_ms": 59.01693, "total_ms": 479.010779, "gpairs_per_s": 2.239792, "pairs": 132185670, "device": "Tesla T4", "backend": "cuda", "wall_s": 0.5921051502227783}
+{"mode": "stomp", "precision": "f64", "n": 16384, "m": 100, "kernel_ms": 165.394684, "total_ms": 404.874105, "gpairs_per_s": 0.799214, "pairs": 132185670, "device": "Tesla T4", "backend": "cuda", "wall_s": 0.513634443283081}
+{"mode": "twin_mdms", "precision": "f64", "n": 16384, "m": 100, "kernel_ms": 4029.218044, "total_ms": 4033.55054, "gpairs_per_s": 0.032807, "pairs": 132185670, "device": "cpu", "backend": "cpu_twin", "wall_s": 4.037560939788818}
+{"mode": "stomp", "precision": "f32c", "n": 32768, "m": 100, "kernel_ms": 143.284225, "total_ms": 568.124889, "gpairs_per_s": 3.718477, "pairs": 532799046, "device": "Tesla T4", "backend": "cuda", "wall_s": 0.74556565284729}
+{"mode": "mdms", "precision": "f64", "n": 32768, "m": 100, "kernel_ms": 1361.815552, "total_ms": 1686.638784, "gpairs_per_s": 0.391242, "pairs": 532799046, "device": "Tesla T4", "backend": "cuda", "wall_s": 1.7617685794830322}
+{"mode": "twin_mdms", "precision": "f32c", "n": 32768, "m": 100, "kernel_ms": 21796.888914, "total_ms": 21804.947119, "gpairs_per_s": 0.024444, "pairs": 532799046, "device": "cpu", "backend": "cpu_twin", "wall_s": 21.80917978286743}
+{"mode": "mdms", "precision": "f32c", "n": 65536, "m": 100, "kernel_ms": 386.379425, "total_ms": 628.403597, "gpairs_per_s": 5.536869, "pairs": 2139332166, "device": "Tesla T4", "backend": "cuda", "wall_s": 0.7048294544219971}
+{"mode": "mdms", "precision": "f32", "n": 65536, "m": 100, "kernel_ms": 285.874878, "total_ms": 458.898544, "gpairs_per_s": 7.483456, "pairs": 2139332166, "device": "Tesla T4", "backend": "cuda", "wall_s": 0.5560219287872314}
+{"mode": "stomp", "precision": "f64", "n": 65536, "m": 100, "kernel_ms": 1229.425293, "total_ms": 1433.77053, "gpairs_per_s": 1.740107, "pairs": 2139332166, "device": "Tesla T4", "backend": "cuda", "wall_s": 1.5075352191925049}
+{"mode": "stomp", "precision": "f32c", "n": 131072, "m": 100, "kernel_ms": 804.986572, "total_ms": 996.772906, "gpairs_per_s": 10.650642, "pairs": 8573623878, "device": "Tesla T4", "backend": "cuda", "wall_s": 1.0821897983551025}
+{"mode": "mdms", "precision": "f64", "n": 131072, "m": 100, "kernel_ms": 19084.201172, "total_ms": 19305.759137, "gpairs_per_s": 0.449252, "pairs": 8573623878, "device": "Tesla T4", "backend": "cuda", "wall_s": 19.384279489517212}
+{"mode": "mdms", "precision": "f32c", "n": 262144, "m": 100, "kernel_ms": 3609.924561, "total_ms": 3828.316395, "gpairs_per_s": 9.509093, "pairs": 34327109190, "device": "Tesla T4", "backend": "cuda", "wall_s": 3.9127886295318604}
+{"mode": "mdms", "precision": "f32", "n": 262144, "m": 100, "kernel_ms": 3574.466797, "total_ms": 3793.439763, "gpairs_per_s": 9.603421, "pairs": 34327109190, "device": "Tesla T4", "backend": "cuda", "wall_s": 3.8777916431427}
+{"mode": "stomp", "precision": "f32c", "n": 524288, "m": 100, "kernel_ms": 11193.819336, "total_ms": 11509.536829, "gpairs_per_s": 12.27228, "pairs": 137373687366, "device": "Tesla T4", "backend": "cuda", "wall_s": 11.600571393966675}
+{"mode": "stomp", "precision": "f32c", "n": 1048576, "m": 100, "kernel_ms": 44955.019531, "total_ms": 45422.769705, "gpairs_per_s": 12.226116, "pairs": 549625273926, "device": "Tesla T4", "backend": "cuda", "wall_s": 45.596980571746826}
+/usr/local/lib/python3.13/dist-packages/numba_cuda/numba/cuda/dispatcher.py:716: NumbaPerformanceWarning: [1mGrid size 4 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+/usr/local/lib/python3.13/dist-packages/numba_cuda/numba/cuda/dispatcher.py:716: NumbaPerformanceWarning: [1mGrid size 32 will likely result in GPU under-utilization due to low occupancy.[0m
+  warn(errors.NumbaPerformanceWarning(msg))
+{"mode": "stumpy_gpu_stump", "precision": "f64", "n": 16384, "m": 100, "kernel_ms": 2506.2286853790283, "device": "cuda:0", "backend": "stumpy 1.14.1"}
+{"mode": "stumpy_gpu_stump", "precision": "f64", "n": 65536, "m": 100, "kernel_ms": 9871.668815612793, "device": "cuda:0", "backend": "stumpy 1.14.1"}
+{"mode": "stumpy_gpu_stump", "precision": "f64", "n": 262144, "m": 100, "kernel_ms": 39152.80079841614, "device": "cuda:0", "backend": "stumpy 1.14.1"}

@@ -27,6 +27,15 @@
       "status": "complete",
       "gpu_hours": 0.0582,
       "finished_utc": "2026-11-21T23:18:20.073836+00:00"
+    },
+    {
+      "job_id": "bench-20261121T231925Z-768ab4d7",
+      "job": "bench",
+      "kernel": "haphngngcgia/mdms-bench",
+      "sha": "768ab4d74c1e5590c273500a90241febed445639",
+      "status": "complete",
+      "gpu_hours": 0.0546,
+      "finished_utc": "2026-11-21T23:23:55.005476+00:00"
     }
   ]
 }
