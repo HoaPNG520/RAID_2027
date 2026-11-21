@@ -13,3 +13,4 @@ __pycache__/
 *.f32
 *.i32
 !results/**
+bench/quota.json

@@ -136,3 +136,41 @@ def test_parse_status_formats():
     # the kernel id or username must never decide the status
     assert kj.parse_status('error-runner/mdms-smoke has status "KernelWorkerStatus.QUEUED"') == "queued"
     assert kj.parse_status("404 Client Error: Not Found") is None
+
+
+@pytest.mark.fast
+def test_github_workflow_flow(env, capsys, monkeypatch):
+    """Simulate .github/workflows/kaggle.yml: push kaggle/<job>-N, CI checks out the commit
+    detached, runs the job, publishes to gpu-results; a second run appends."""
+    kj, work, tmp = env
+    origin = tmp / "origin.git"
+    publish = os.path.join(REPO_ROOT, "scripts", "publish_gpu_results.sh")
+    for n in (1, 2):
+        ref = f"kaggle/testjob-{n}"
+        sh("git", "push", "-q", "origin", f"HEAD:refs/heads/{ref}", cwd=work)
+        sha = subprocess.run(["git", "rev-parse", "HEAD"], cwd=work, capture_output=True, text=True).stdout.strip()
+        ci = tmp / f"ci{n}"
+        sh("git", "clone", "-q", str(origin), str(ci), cwd=tmp)
+        sh("git", "checkout", "-q", "--detach", sha, cwd=ci)          # what actions/checkout does
+        name = ref[len("kaggle/"):]
+        job = name.split("-")[0]
+        assert job == "testjob"
+        sh("git", "checkout", "-q", "-B", ref, sha, cwd=ci)            # the workflow's step
+        monkeypatch.setenv("MDMS_ROOT", str(ci))
+        kj.ROOT = str(ci)
+        kj.QUOTA = os.path.join(str(ci), "bench", "quota.json")
+        kj.main(["run", job, "--approved", "--max-minutes", "1"])
+        assert "VALID" in capsys.readouterr().out
+        (ci / "run.log").write_text("log\n")
+        sh("sh", publish, job, str(ci / "run.log"), cwd=ci)
+    check = tmp / "check"
+    sh("git", "clone", "-q", "-b", "gpu-results", str(origin), str(check), cwd=tmp)
+    runs = sorted(os.listdir(check / "runs"))
+    assert len(runs) == 2 and all(r.startswith("testjob-") for r in runs)
+    for r in runs:
+        files = [f for _, _, fs in os.walk(check / "runs" / r) for f in fs]
+        assert "job_summary.json" in files and "run.log" in files
+    assert len(open(check / "INDEX.txt").read().splitlines()) == 2
+    assert os.path.exists(check / "quota.json")
+    # the results branch never contains the code tree
+    assert not os.path.exists(check / "hello.txt")

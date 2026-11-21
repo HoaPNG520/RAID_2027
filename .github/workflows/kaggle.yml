@@ -1,0 +1,51 @@
+# Runs one GPU job on Kaggle when a branch named kaggle/<job>-<anything> is pushed,
+# e.g. kaggle/smoke-1, kaggle/validate-2, kaggle/bench-1 (job = smoke | validate | bench).
+# Needs: repository secret KAGGLE_API_TOKEN, repository variable KAGGLE_USERNAME.
+# Results (outputs, run log, quota ledger) are committed to the branch gpu-results.
+name: kaggle-gpu
+on:
+  push:
+    branches: ["kaggle/**"]
+permissions:
+  contents: write
+concurrency:
+  group: kaggle-gpu
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Parse the job from the branch name
+        id: job
+        run: |
+          name="${GITHUB_REF_NAME#kaggle/}"
+          job="${name%%-*}"
+          case "$job" in smoke|validate|bench) ;; *) echo "unknown job '$job' in branch $GITHUB_REF_NAME"; exit 1 ;; esac
+          echo "job=$job" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install the Kaggle CLI
+        run: python3 -m pip install --quiet "kaggle>=1.8"
+      - name: Restore the GPU-hour ledger
+        run: |
+          if git fetch --quiet origin gpu-results 2>/dev/null; then
+            git show origin/gpu-results:quota.json > /tmp/quota.json 2>/dev/null && mkdir -p bench && cp /tmp/quota.json bench/quota.json || true
+          fi
+      - name: Run the job on Kaggle
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+          KAGGLE_USERNAME: ${{ vars.KAGGLE_USERNAME }}
+        run: |
+          set -o pipefail
+          test -n "$KAGGLE_API_TOKEN" || { echo "secret KAGGLE_API_TOKEN is not set"; exit 1; }
+          test -n "$KAGGLE_USERNAME" || { echo "variable KAGGLE_USERNAME is not set"; exit 1; }
+          git checkout -q -B "$GITHUB_REF_NAME" "$GITHUB_SHA"
+          python3 kaggle/kaggle_job.py run "${{ steps.job.outputs.job }}" --approved 2>&1 | tee /tmp/run.log
+      - name: Publish results to the gpu-results branch
+        if: always()
+        run: sh scripts/publish_gpu_results.sh "${{ steps.job.outputs.job }}" /tmp/run.log
