@@ -1,0 +1,18 @@
+job smoke: commit 768ab4d74c on kaggle/smoke-2; estimate 0.17 GPU-h; used this week 0.00/20.0 h
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/haphngngcgia/mdms-smoke 
+[23:09:18] haphngngcgia/mdms-smoke: queued
+[23:09:38] haphngngcgia/mdms-smoke: running
+[23:10:09] haphngngcgia/mdms-smoke: running
+[23:10:49] haphngngcgia/mdms-smoke: running
+[23:11:40] haphngngcgia/mdms-smoke: running
+[23:12:40] haphngngcgia/mdms-smoke: complete
+
+status: complete; outputs: /home/runner/work/RAID_2027/RAID_2027/bench/raw/smoke-20261121T230914Z-768ab4d7
+  git clone --quiet --branch kaggle/smoke- rc=0 1.42s
+  git checkout --quiet 768ab4d74c1e5590c27 rc=0 0.032s
+  env                                      rc=0 1.166s
+  build                                    rc=0 9.19s
+  unit_tests                               rc=0 51.196s
+  sanitizer                                rc=0 21.018s
+  agree_gpu_vs_twin                        rc=0 47.656s
+VALID: job_summary matches the job id, the commit and the GPU; all steps rc=0
