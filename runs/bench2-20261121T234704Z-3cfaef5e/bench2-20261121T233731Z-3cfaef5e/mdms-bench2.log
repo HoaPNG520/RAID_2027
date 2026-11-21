@@ -1,0 +1,68 @@
+[{"stream_name":"stdout","time":508.644599041,"data":"{\n"}
+,{"stream_name":"stdout","time":508.644650952,"data":"  \"job_id\": \"bench2-20261121T233731Z-3cfaef5e\",\n"}
+,{"stream_name":"stdout","time":508.644655328,"data":"  \"job\": \"bench2\",\n"}
+,{"stream_name":"stdout","time":508.644657943,"data":"  \"requested_sha\": \"3cfaef5ed450bb0b24c921e01e93f10259164133\",\n"}
+,{"stream_name":"stdout","time":508.644660419,"data":"  \"branch\": \"kaggle/bench2-1\",\n"}
+,{"stream_name":"stdout","time":508.644662703,"data":"  \"started_unix\": 1795304257.840533,\n"}
+,{"stream_name":"stdout","time":508.644665083,"data":"  \"steps\": [\n"}
+,{"stream_name":"stdout","time":508.644667332,"data":"    {\n"}
+,{"stream_name":"stdout","time":508.64466959599997,"data":"      \"cmd\": \"git clone --quiet --branch kaggle/bench2-1 https://github.com/HoaPNG520/RAID_2027 /kaggle/temp/repo\",\n"}
+,{"stream_name":"stdout","time":508.644672085,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":508.644674334,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":508.644676578,"data":"      \"seconds\": 0.668,\n"}
+,{"stream_name":"stdout","time":508.64467881,"data":"      \"log\": \"00_clone.log\"\n"}
+,{"stream_name":"stdout","time":508.644681039,"data":"    },\n"}
+,{"stream_name":"stdout","time":508.644683213,"data":"    {\n"}
+,{"stream_name":"stdout","time":508.644685336,"data":"      \"cmd\": \"git checkout --quiet 3cfaef5ed450bb0b24c921e01e93f10259164133\",\n"}
+,{"stream_name":"stdout","time":508.644687688,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":508.644689897,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":508.644692153,"data":"      \"seconds\": 0.016,\n"}
+,{"stream_name":"stdout","time":508.644694274,"data":"      \"log\": \"01_checkout.log\"\n"}
+,{"stream_name":"stdout","time":508.64469647,"data":"    },\n"}
+,{"stream_name":"stdout","time":508.644698548,"data":"    {\n"}
+,{"stream_name":"stdout","time":508.644700644,"data":"      \"cmd\": \"make all\",\n"}
+,{"stream_name":"stdout","time":508.644702826,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":508.64470495,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":508.644707361,"data":"      \"seconds\": 7.884,\n"}
+,{"stream_name":"stdout","time":508.644709547,"data":"      \"log\": \"02_build.log\",\n"}
+,{"stream_name":"stdout","time":508.644711725,"data":"      \"name\": \"build\"\n"}
+,{"stream_name":"stdout","time":508.644713956,"data":"    },\n"}
+,{"stream_name":"stdout","time":508.644716037,"data":"    {\n"}
+,{"stream_name":"stdout","time":508.644718154,"data":"      \"cmd\": \"pip install -q stumpy || true\",\n"}
+,{"stream_name":"stdout","time":508.644720394,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":508.644722513,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":508.644724662,"data":"      \"seconds\": 3.924,\n"}
+,{"stream_name":"stdout","time":508.644726825,"data":"      \"log\": \"03_stumpy.log\",\n"}
+,{"stream_name":"stdout","time":508.644728995,"data":"      \"name\": \"stumpy\"\n"}
+,{"stream_name":"stdout","time":508.644731202,"data":"    },\n"}
+,{"stream_name":"stdout","time":508.644733279,"data":"    {\n"}
+,{"stream_name":"stdout","time":508.6447362,"data":"      \"cmd\": \"mkdir -p out \u0026\u0026 ((python3 -I gpu/bench.py --suite speed2 --gpu bin/mdms_gpu --out out/speed2_d0.jsonl --device 0 --shard 0/2 \u003e out/speed2_d0.log 2\u003e\u00261 \u0026\u0026 python3 -I gpu/bench.py --suite stumpy_fair --gpu bin/mdms_gpu --out out/stumpy_fair.jsonl --device 0 \u003e out/stumpy_fair.log 2\u003e\u00261) \u0026 p0=$!; python3 -I gpu/bench.py --suite speed2 --gpu bin/mdms_gpu --out out/speed2_d1.jsonl --device 1 --shard 1/2 \u003e out/speed2_d1.log 2\u003e\u00261 \u0026 p1=$!; wait $p0; r0=$?; wait $p1; r1=$?; exit $((r0 | r1)))\",\n"}
+,{"stream_name":"stdout","time":508.644745424,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":508.644748052,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":508.644750278,"data":"      \"seconds\": 494.907,\n"}
+,{"stream_name":"stdout","time":508.64475254,"data":"      \"log\": \"04_speed2_and_stumpy_fair.log\",\n"}
+,{"stream_name":"stdout","time":508.644754765,"data":"      \"name\": \"speed2_and_stumpy_fair\"\n"}
+,{"stream_name":"stdout","time":508.644757018,"data":"    }\n"}
+,{"stream_name":"stdout","time":508.644759083,"data":"  ],\n"}
+,{"stream_name":"stdout","time":508.644761212,"data":"  \"ok\": true,\n"}
+,{"stream_name":"stdout","time":508.644763384,"data":"  \"gpus\": [\n"}
+,{"stream_name":"stdout","time":508.644765577,"data":"    \"Tesla T4, 15360 MiB, 580.178.04\",\n"}
+,{"stream_name":"stdout","time":508.644767811,"data":"    \"Tesla T4, 15360 MiB, 580.178.04\"\n"}
+,{"stream_name":"stdout","time":508.644770002,"data":"  ],\n"}
+,{"stream_name":"stdout","time":508.644772075,"data":"  \"nvcc_version\": [\n"}
+,{"stream_name":"stdout","time":508.644774298,"data":"    \"Build cuda_13.0.r13.0/compiler.36424714_0\"\n"}
+,{"stream_name":"stdout","time":508.644776533,"data":"  ],\n"}
+,{"stream_name":"stdout","time":508.644783758,"data":"  \"python\": \"3.13.16\",\n"}
+,{"stream_name":"stdout","time":508.644786306,"data":"  \"checked_out_sha\": \"3cfaef5ed450bb0b24c921e01e93f10259164133\",\n"}
+,{"stream_name":"stdout","time":508.644788606,"data":"  \"collected\": [\n"}
+,{"stream_name":"stdout","time":508.644790809,"data":"    \"out/\"\n"}
+,{"stream_name":"stdout","time":508.644793007,"data":"  ],\n"}
+,{"stream_name":"stdout","time":508.644795151,"data":"  \"seconds\": 507.467\n"}
+,{"stream_name":"stdout","time":508.644797412,"data":"}\n"}
+,{"stream_name":"stderr","time":510.907590473,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":510.907614529,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":511.211400482,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":511.211422427,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":512.070999116,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":513.068878241,"data":"[NbConvertApp] Writing 299977 bytes to __results__.html\n"}
+]
