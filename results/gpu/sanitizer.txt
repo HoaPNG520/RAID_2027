@@ -1,0 +1,82 @@
+== /usr/local/cuda/bin/compute-sanitizer --tool memcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f64 --vlimits window --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool memcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f64 --vlimits slew --slew 4 --lo -100 --hi 10 --opt-center --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool memcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/full.f64 --n 700 --m 32 --precision f64 --mode stomp --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool memcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32c --vlimits window --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool memcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32c --vlimits slew --slew 4 --lo -100 --hi 10 --opt-center --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool memcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/full.f64 --n 700 --m 32 --precision f32c --mode stomp --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool memcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32 --vlimits window --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool memcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32 --vlimits slew --slew 4 --lo -100 --hi 10 --opt-center --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool memcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/full.f64 --n 700 --m 32 --precision f32 --mode stomp --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool racecheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f64 --vlimits window --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)
+== /usr/local/cuda/bin/compute-sanitizer --tool racecheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f64 --vlimits slew --slew 4 --lo -100 --hi 10 --opt-center --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)
+== /usr/local/cuda/bin/compute-sanitizer --tool racecheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/full.f64 --n 700 --m 32 --precision f64 --mode stomp --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)
+== /usr/local/cuda/bin/compute-sanitizer --tool racecheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32c --vlimits window --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)
+== /usr/local/cuda/bin/compute-sanitizer --tool racecheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32c --vlimits slew --slew 4 --lo -100 --hi 10 --opt-center --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)
+== /usr/local/cuda/bin/compute-sanitizer --tool racecheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/full.f64 --n 700 --m 32 --precision f32c --mode stomp --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)
+== /usr/local/cuda/bin/compute-sanitizer --tool racecheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32 --vlimits window --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)
+== /usr/local/cuda/bin/compute-sanitizer --tool racecheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32 --vlimits slew --slew 4 --lo -100 --hi 10 --opt-center --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)
+== /usr/local/cuda/bin/compute-sanitizer --tool racecheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/full.f64 --n 700 --m 32 --precision f32 --mode stomp --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)
+== /usr/local/cuda/bin/compute-sanitizer --tool initcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f64 --vlimits window --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool initcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f64 --vlimits slew --slew 4 --lo -100 --hi 10 --opt-center --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool initcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/full.f64 --n 700 --m 32 --precision f64 --mode stomp --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool initcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32c --vlimits window --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool initcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32c --vlimits slew --slew 4 --lo -100 --hi 10 --opt-center --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool initcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/full.f64 --n 700 --m 32 --precision f32c --mode stomp --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool initcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32 --vlimits window --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool initcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/x.f64 --n 700 --m 32 --precision f32 --vlimits slew --slew 4 --lo -100 --hi 10 --opt-center --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+== /usr/local/cuda/bin/compute-sanitizer --tool initcheck --error-exitcode 9 bin/mdms_gpu --input /tmp/tmp.bJUu1CFzB6/full.f64 --n 700 --m 32 --precision f32 --mode stomp --band-rows 64 --out /tmp/tmp.bJUu1CFzB6/o
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+sanitizer: all clean
