@@ -134,7 +134,7 @@ def fig_speed(jsonls):
     ax.set_yscale("log")
     ax.set_xlabel("series length n")
     ax.set_ylabel("kernel time (s)")
-    ax.legend(fontsize=7)
+    ax.legend(fontsize=6.5, loc="lower right", frameon=False)
     save(fig, "fig_speed", "Log-log line chart of GPU kernel time against series length on a Tesla T4. "
          + "; ".join(alt) + ".")
     return True
