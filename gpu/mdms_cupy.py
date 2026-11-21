@@ -22,7 +22,15 @@ import json
 import os
 import sys
 
+import shutil
+
 import numpy as np
+
+# CuPy's nvcc backend looks for NVCC / CUDA_PATH or nvcc on PATH; Kaggle's image has nvcc only
+# under /usr/local/cuda/bin. Set them before cupy is imported.
+_nvcc = shutil.which("nvcc") or "/usr/local/cuda/bin/nvcc"
+os.environ.setdefault("NVCC", _nvcc)
+os.environ.setdefault("CUDA_PATH", os.path.dirname(os.path.dirname(_nvcc)))
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
