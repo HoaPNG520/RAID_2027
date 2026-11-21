@@ -71,6 +71,22 @@ JOBS = {
                 timeout_sec=5400),
         ],
         collect=["out"], stop_on_failure=False),
+    "bench2": dict(
+        est_min=40,
+        commands=[
+            dict(name="build", cmd="make all", timeout_sec=600),
+            dict(name="stumpy", cmd="pip install -q stumpy || true", timeout_sec=600),
+            dict(name="speed2_and_stumpy_fair", cmd=(
+                f"mkdir -p out && (({PY} gpu/bench.py --suite speed2 --gpu bin/mdms_gpu "
+                f"--out out/speed2_d0.jsonl --device 0 --shard 0/2 > out/speed2_d0.log 2>&1 && "
+                f"{PY} gpu/bench.py --suite stumpy_fair --gpu bin/mdms_gpu "
+                f"--out out/stumpy_fair.jsonl --device 0 > out/stumpy_fair.log 2>&1) & p0=$!; "
+                f"{PY} gpu/bench.py --suite speed2 --gpu bin/mdms_gpu "
+                f"--out out/speed2_d1.jsonl --device 1 --shard 1/2 > out/speed2_d1.log 2>&1 & p1=$!; "
+                f"wait $p0; r0=$?; wait $p1; r1=$?; exit $((r0 | r1)))"),
+                timeout_sec=5400),
+        ],
+        collect=["out"], stop_on_failure=False),
 }
 
 

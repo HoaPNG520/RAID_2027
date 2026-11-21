@@ -1,5 +1,5 @@
 # Runs one GPU job on Kaggle when a branch named kaggle/<job>-<anything> is pushed,
-# e.g. kaggle/smoke-1, kaggle/validate-2, kaggle/bench-1 (job = smoke | validate | bench).
+# e.g. kaggle/smoke-1, kaggle/validate-2, kaggle/bench-1 (job = smoke | validate | bench | bench2).
 # Needs: repository secret KAGGLE_API_TOKEN, repository variable KAGGLE_USERNAME.
 # Results (outputs, run log, quota ledger) are committed to the branch gpu-results.
 name: kaggle-gpu
@@ -24,7 +24,7 @@ jobs:
         run: |
           name="${GITHUB_REF_NAME#kaggle/}"
           job="${name%%-*}"
-          case "$job" in smoke|validate|bench) ;; *) echo "unknown job '$job' in branch $GITHUB_REF_NAME"; exit 1 ;; esac
+          case "$job" in smoke|validate|bench|bench2) ;; *) echo "unknown job '$job' in branch $GITHUB_REF_NAME"; exit 1 ;; esac
           echo "job=$job" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v5
         with:

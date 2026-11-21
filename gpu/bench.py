@@ -124,11 +124,87 @@ def suite_speed(gpu, twin, out, device, shard, m=100, stumpy=False):
     return True
 
 
+def speed2_cases():
+    """Second benchmark: other window lengths, f64 at larger n."""
+    cases = []
+    for m in (50, 200):
+        for e in (16, 18, 20):
+            cases.append(("mdms", "f32c", 2 ** e, m))
+            cases.append(("stomp", "f32c", 2 ** e, m))
+    cases.append(("mdms", "f64", 2 ** 18, 100))
+    cases.append(("stomp", "f64", 2 ** 18, 100))
+    return cases
+
+
+def suite_speed2(gpu, out, device, shard):
+    k, K = (int(x) for x in shard.split("/"))
+    rows = []
+    for i, (mode, prec, n, m) in enumerate(speed2_cases()):
+        if i % K != k:
+            continue
+        T, mask = series(n, 3, 0.01, m)
+        t = time.perf_counter()
+        x = T if mode == "stomp" else np.where(mask, T, np.nan)
+        P, I, st = run_bin(gpu, x, m, prec, mode=mode, device=device)
+        r = dict(mode=mode, precision=prec, n=n, m=m, kernel_ms=st["kernel_ms"], total_ms=st["total_ms"],
+                 gpairs_per_s=st["gpairs_per_s"], pairs=st["pairs"], device=st["device_name"],
+                 backend=st["backend"], wall_s=time.perf_counter() - t)
+        rows.append(r)
+        print(json.dumps(r), flush=True)
+    with open(out, "w") as fh:
+        for r in rows:
+            fh.write(json.dumps(r) + "\n")
+    return True
+
+
+def suite_stumpy_fair(gpu, out, device, m=100, repeats=3):
+    """STUMPY gpu_stump vs. our double-precision STOMP on the same complete series, timed the same
+    way: wall-clock of the whole call (ours: process start, file I/O and kernel), best of `repeats`,
+    after a warm-up call of the same size; plus the agreement of the two profiles."""
+    import stumpy
+    from numba import cuda
+    rows = []
+    for e in (14, 16, 18):
+        n = 2 ** e
+        T, _ = series(n, 2, 0.0, m)
+        stumpy.gpu_stump(T, m, device_id=device)            # JIT compile + warm-up, same size
+        cuda.synchronize()
+        st_t = []
+        for _ in range(repeats):
+            t = time.perf_counter()
+            mp = stumpy.gpu_stump(T, m, device_id=device)
+            cuda.synchronize()
+            st_t.append(time.perf_counter() - t)
+        run_bin(gpu, T, m, "f64", mode="stomp", device=device)          # warm-up
+        our_t, our_k = [], []
+        for _ in range(repeats):
+            t = time.perf_counter()
+            P, I, st = run_bin(gpu, T, m, "f64", mode="stomp", device=device)
+            our_t.append(time.perf_counter() - t)
+            our_k.append(st["kernel_ms"] / 1000)
+        Ps = np.asarray(mp[:, 0], dtype=np.float64)
+        fin = np.isfinite(Ps) & np.isfinite(P)
+        diff = np.abs(Ps[fin] - P[fin])
+        r = dict(mode="stumpy_fair", n=n, m=m, stumpy_version=stumpy.__version__,
+                 stumpy_wall_s=min(st_t), ours_stomp_f64_wall_s=min(our_t), ours_stomp_f64_kernel_s=min(our_k),
+                 stumpy_excl_zone=int(stumpy.config.STUMPY_EXCL_ZONE_DENOM),
+                 profile_max_abs_diff=float(diff.max()) if diff.size else None,
+                 profile_frac_within_1e6=float((diff <= 1e-6).mean()) if diff.size else None,
+                 index_equal_frac=float((np.asarray(mp[:, 1], dtype=np.int64) == I).mean()),
+                 device=f"cuda:{device}")
+        rows.append(r)
+        print(json.dumps(r), flush=True)
+    with open(out, "w") as fh:
+        for r in rows:
+            fh.write(json.dumps(r) + "\n")
+    return True
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--suite", choices=["agree", "speed"], required=True)
+    ap.add_argument("--suite", choices=["agree", "speed", "speed2", "stumpy_fair"], required=True)
     ap.add_argument("--gpu", required=True)
-    ap.add_argument("--twin", required=True)
+    ap.add_argument("--twin", default=None)
     ap.add_argument("--out", required=True)
     ap.add_argument("--device", type=int, default=0)
     ap.add_argument("--shard", default="0/1")
@@ -139,7 +215,12 @@ def main():
         ok = suite_agree(a.gpu, a.twin, a.out, a.device)
         print("AGREE:", "PASS" if ok else "FAIL")
         sys.exit(0 if ok else 1)
-    suite_speed(a.gpu, a.twin, a.out, a.device, a.shard, stumpy=a.stumpy)
+    if a.suite == "speed2":
+        suite_speed2(a.gpu, a.out, a.device, a.shard)
+    elif a.suite == "stumpy_fair":
+        suite_stumpy_fair(a.gpu, a.out, a.device)
+    else:
+        suite_speed(a.gpu, a.twin, a.out, a.device, a.shard, stumpy=a.stumpy)
 
 
 if __name__ == "__main__":
