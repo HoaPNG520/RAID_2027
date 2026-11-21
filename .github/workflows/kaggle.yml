@@ -30,7 +30,9 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install the Kaggle CLI
-        run: python3 -m pip install --quiet "kaggle>=1.8"
+        run: |
+          python3 -m pip install --quiet "kaggle>=1.8" six
+          kaggle --version
       - name: Restore the GPU-hour ledger
         run: |
           if git fetch --quiet origin gpu-results 2>/dev/null; then
