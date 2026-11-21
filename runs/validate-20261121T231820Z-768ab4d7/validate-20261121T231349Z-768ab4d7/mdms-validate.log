@@ -1,0 +1,76 @@
+[{"stream_name":"stdout","time":210.764420777,"data":"{\n"}
+,{"stream_name":"stdout","time":210.764470609,"data":"  \"job_id\": \"validate-20261121T231349Z-768ab4d7\",\n"}
+,{"stream_name":"stdout","time":210.764475581,"data":"  \"job\": \"validate\",\n"}
+,{"stream_name":"stdout","time":210.76447832,"data":"  \"requested_sha\": \"768ab4d74c1e5590c273500a90241febed445639\",\n"}
+,{"stream_name":"stdout","time":210.764481039,"data":"  \"branch\": \"kaggle/validate-1\",\n"}
+,{"stream_name":"stdout","time":210.764483508,"data":"  \"started_unix\": 1795302835.81024,\n"}
+,{"stream_name":"stdout","time":210.764485987,"data":"  \"steps\": [\n"}
+,{"stream_name":"stdout","time":210.764488364,"data":"    {\n"}
+,{"stream_name":"stdout","time":210.764490829,"data":"      \"cmd\": \"git clone --quiet --branch kaggle/validate-1 https://github.com/HoaPNG520/RAID_2027 /kaggle/temp/repo\",\n"}
+,{"stream_name":"stdout","time":210.764493614,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":210.764496052,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":210.764498448,"data":"      \"seconds\": 0.767,\n"}
+,{"stream_name":"stdout","time":210.764500891,"data":"      \"log\": \"00_clone.log\"\n"}
+,{"stream_name":"stdout","time":210.76450331,"data":"    },\n"}
+,{"stream_name":"stdout","time":210.764505592,"data":"    {\n"}
+,{"stream_name":"stdout","time":210.764507894,"data":"      \"cmd\": \"git checkout --quiet 768ab4d74c1e5590c273500a90241febed445639\",\n"}
+,{"stream_name":"stdout","time":210.764510392,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":210.764512716,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":210.764515064,"data":"      \"seconds\": 0.016,\n"}
+,{"stream_name":"stdout","time":210.764517424,"data":"      \"log\": \"01_checkout.log\"\n"}
+,{"stream_name":"stdout","time":210.76451995,"data":"    },\n"}
+,{"stream_name":"stdout","time":210.764522238,"data":"    {\n"}
+,{"stream_name":"stdout","time":210.764524582,"data":"      \"cmd\": \"make all\",\n"}
+,{"stream_name":"stdout","time":210.764526985,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":210.764529292,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":210.764531635,"data":"      \"seconds\": 8.74,\n"}
+,{"stream_name":"stdout","time":210.764533983,"data":"      \"log\": \"02_build.log\",\n"}
+,{"stream_name":"stdout","time":210.764536356,"data":"      \"name\": \"build\"\n"}
+,{"stream_name":"stdout","time":210.764538879,"data":"    },\n"}
+,{"stream_name":"stdout","time":210.764541576,"data":"    {\n"}
+,{"stream_name":"stdout","time":210.764544208,"data":"      \"cmd\": \"python3 -I scripts/fetch_cwru.py --out data\",\n"}
+,{"stream_name":"stdout","time":210.764546665,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":210.76454896,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":210.764551299,"data":"      \"seconds\": 1.469,\n"}
+,{"stream_name":"stdout","time":210.764553652,"data":"      \"log\": \"03_fetch_cwru.log\",\n"}
+,{"stream_name":"stdout","time":210.764556074,"data":"      \"name\": \"fetch_cwru\"\n"}
+,{"stream_name":"stdout","time":210.764558552,"data":"    },\n"}
+,{"stream_name":"stdout","time":210.764560804,"data":"    {\n"}
+,{"stream_name":"stdout","time":210.764563101,"data":"      \"cmd\": \"mkdir -p out \u0026\u0026 python3 -I gpu/compare.py --bin bin/mdms_gpu --suite t5 --out out/t5_gpu.jsonl\",\n"}
+,{"stream_name":"stdout","time":210.76458423,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":210.764586794,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":210.764594169,"data":"      \"seconds\": 169.93,\n"}
+,{"stream_name":"stdout","time":210.7645969,"data":"      \"log\": \"04_t5_t6_gpu.log\",\n"}
+,{"stream_name":"stdout","time":210.764599468,"data":"      \"name\": \"t5_t6_gpu\"\n"}
+,{"stream_name":"stdout","time":210.764601982,"data":"    },\n"}
+,{"stream_name":"stdout","time":210.764604378,"data":"    {\n"}
+,{"stream_name":"stdout","time":210.764606803,"data":"      \"cmd\": \"python3 -I gpu/compare.py --bin bin/mdms_gpu --suite t8 --out out/t8_gpu.jsonl --data-dir data\",\n"}
+,{"stream_name":"stdout","time":210.764609652,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":210.764612057,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":210.764614536,"data":"      \"seconds\": 28.496,\n"}
+,{"stream_name":"stdout","time":210.764617012,"data":"      \"log\": \"05_t8_gpu.log\",\n"}
+,{"stream_name":"stdout","time":210.764619532,"data":"      \"name\": \"t8_gpu\"\n"}
+,{"stream_name":"stdout","time":210.764622048,"data":"    }\n"}
+,{"stream_name":"stdout","time":210.764624437,"data":"  ],\n"}
+,{"stream_name":"stdout","time":210.764626846,"data":"  \"ok\": true,\n"}
+,{"stream_name":"stdout","time":210.764629357,"data":"  \"gpus\": [\n"}
+,{"stream_name":"stdout","time":210.764631842,"data":"    \"Tesla T4, 15360 MiB, 580.178.04\",\n"}
+,{"stream_name":"stdout","time":210.764634428,"data":"    \"Tesla T4, 15360 MiB, 580.178.04\"\n"}
+,{"stream_name":"stdout","time":210.764636981,"data":"  ],\n"}
+,{"stream_name":"stdout","time":210.76463938,"data":"  \"nvcc_version\": [\n"}
+,{"stream_name":"stdout","time":210.764641889,"data":"    \"Build cuda_13.0.r13.0/compiler.36424714_0\"\n"}
+,{"stream_name":"stdout","time":210.764644435,"data":"  ],\n"}
+,{"stream_name":"stdout","time":210.76464681,"data":"  \"python\": \"3.13.16\",\n"}
+,{"stream_name":"stdout","time":210.76464944,"data":"  \"checked_out_sha\": \"768ab4d74c1e5590c273500a90241febed445639\",\n"}
+,{"stream_name":"stdout","time":210.76465211,"data":"  \"collected\": [\n"}
+,{"stream_name":"stdout","time":210.764654587,"data":"    \"out/\"\n"}
+,{"stream_name":"stdout","time":210.76465709000001,"data":"  ],\n"}
+,{"stream_name":"stdout","time":210.764659573,"data":"  \"seconds\": 209.489\n"}
+,{"stream_name":"stdout","time":210.764662073,"data":"}\n"}
+,{"stream_name":"stderr","time":213.307425114,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":213.30746074,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":213.629308304,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":213.629334213,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":215.66041988,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":216.785959277,"data":"[NbConvertApp] Writing 299832 bytes to __results__.html\n"}
+]

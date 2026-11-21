@@ -1,0 +1,69 @@
+{
+  "job_id": "validate-20261121T231349Z-768ab4d7",
+  "job": "validate",
+  "requested_sha": "768ab4d74c1e5590c273500a90241febed445639",
+  "branch": "kaggle/validate-1",
+  "started_unix": 1795302835.81024,
+  "steps": [
+    {
+      "cmd": "git clone --quiet --branch kaggle/validate-1 https://github.com/HoaPNG520/RAID_2027 /kaggle/temp/repo",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 0.767,
+      "log": "00_clone.log"
+    },
+    {
+      "cmd": "git checkout --quiet 768ab4d74c1e5590c273500a90241febed445639",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 0.016,
+      "log": "01_checkout.log"
+    },
+    {
+      "cmd": "make all",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 8.74,
+      "log": "02_build.log",
+      "name": "build"
+    },
+    {
+      "cmd": "python3 -I scripts/fetch_cwru.py --out data",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 1.469,
+      "log": "03_fetch_cwru.log",
+      "name": "fetch_cwru"
+    },
+    {
+      "cmd": "mkdir -p out && python3 -I gpu/compare.py --bin bin/mdms_gpu --suite t5 --out out/t5_gpu.jsonl",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 169.93,
+      "log": "04_t5_t6_gpu.log",
+      "name": "t5_t6_gpu"
+    },
+    {
+      "cmd": "python3 -I gpu/compare.py --bin bin/mdms_gpu --suite t8 --out out/t8_gpu.jsonl --data-dir data",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 28.496,
+      "log": "05_t8_gpu.log",
+      "name": "t8_gpu"
+    }
+  ],
+  "ok": true,
+  "gpus": [
+    "Tesla T4, 15360 MiB, 580.178.04",
+    "Tesla T4, 15360 MiB, 580.178.04"
+  ],
+  "nvcc_version": [
+    "Build cuda_13.0.r13.0/compiler.36424714_0"
+  ],
+  "python": "3.13.16",
+  "checked_out_sha": "768ab4d74c1e5590c273500a90241febed445639",
+  "collected": [
+    "out/"
+  ],
+  "seconds": 209.489
+}

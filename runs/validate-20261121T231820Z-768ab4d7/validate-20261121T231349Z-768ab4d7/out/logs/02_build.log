@@ -1,0 +1,48 @@
+g++ -O2 -std=c++17 -ffp-contract=off -Wall -Wextra -o bin/mdms_twin src/mdms_twin.cpp
+/usr/local/cuda/bin/nvcc -O3 -std=c++17 -fmad=false -lineinfo -gencode arch=compute_75,code=sm_75 -Xptxas -v -o bin/mdms_gpu src/mdms_gpu.cu
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_Z9mdms_bandIfLb0E7EmitF32EvPKT_PKhPK3Win6ParamsiiT1_' for 'sm_75'
+ptxas info    : Function properties for _Z9mdms_bandIfLb0E7EmitF32EvPKT_PKhPK3Win6ParamsiiT1_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 55 registers, used 0 barriers, 424 bytes cmem[0]
+ptxas info    : Compile time = 167.215 ms
+ptxas info    : Compiling entry function '_Z9mdms_bandIfLb1E7EmitF32EvPKT_PKhPK3Win6ParamsiiT1_' for 'sm_75'
+ptxas info    : Function properties for _Z9mdms_bandIfLb1E7EmitF32EvPKT_PKhPK3Win6ParamsiiT1_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 55 registers, used 0 barriers, 424 bytes cmem[0]
+ptxas info    : Compile time = 37.134 ms
+ptxas info    : Compiling entry function '_Z10stomp_bandIf7EmitF32EvPKT_PK8StompWin6ParamsiiT0_' for 'sm_75'
+ptxas info    : Function properties for _Z10stomp_bandIf7EmitF32EvPKT_PK8StompWin6ParamsiiT0_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 63 registers, used 0 barriers, 416 bytes cmem[0]
+ptxas info    : Compile time = 35.057 ms
+ptxas info    : Compiling entry function '_Z9mdms_bandIdLb0E12EmitF64Pass2EvPKT_PKhPK3Win6ParamsiiT1_' for 'sm_75'
+ptxas info    : Function properties for _Z9mdms_bandIdLb0E12EmitF64Pass2EvPKT_PKhPK3Win6ParamsiiT1_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 70 registers, used 0 barriers, 432 bytes cmem[0], 8 bytes cmem[2]
+ptxas info    : Compile time = 40.009 ms
+ptxas info    : Compiling entry function '_Z10stomp_bandId12EmitF64Pass2EvPKT_PK8StompWin6ParamsiiT0_' for 'sm_75'
+ptxas info    : Function properties for _Z10stomp_bandId12EmitF64Pass2EvPKT_PK8StompWin6ParamsiiT0_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 63 registers, used 0 barriers, 424 bytes cmem[0]
+ptxas info    : Compile time = 33.809 ms
+ptxas info    : Compiling entry function '_Z9mdms_bandIdLb0E12EmitF64Pass1EvPKT_PKhPK3Win6ParamsiiT1_' for 'sm_75'
+ptxas info    : Function properties for _Z9mdms_bandIdLb0E12EmitF64Pass1EvPKT_PKhPK3Win6ParamsiiT1_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 0 barriers, 424 bytes cmem[0], 8 bytes cmem[2]
+ptxas info    : Compile time = 38.295 ms
+ptxas info    : Compiling entry function '_Z10stomp_bandId12EmitF64Pass1EvPKT_PK8StompWin6ParamsiiT0_' for 'sm_75'
+ptxas info    : Function properties for _Z10stomp_bandId12EmitF64Pass1EvPKT_PK8StompWin6ParamsiiT0_
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 63 registers, used 0 barriers, 416 bytes cmem[0]
+ptxas info    : Compile time = 33.087 ms
+ptxas info    : Compiling entry function '_Z8fill_intPiii' for 'sm_75'
+ptxas info    : Function properties for _Z8fill_intPiii
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 8 registers, used 0 barriers, 368 bytes cmem[0]
+ptxas info    : Compile time = 1.050 ms
+ptxas info    : Compiling entry function '_Z8fill_ullPyiy' for 'sm_75'
+ptxas info    : Function properties for _Z8fill_ullPyiy
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 8 registers, used 0 barriers, 376 bytes cmem[0]
+ptxas info    : Compile time = 0.919 ms
