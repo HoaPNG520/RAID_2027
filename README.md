@@ -13,7 +13,9 @@ This repository accompanies a paper under review. It contains:
   - `c3_audit.py`: every pair of windows against the exact distance of the complete series
   - `t7_counterexample.py`: counterexamples
   - `t8_numerics.py`: float32 error
-  - `verify_violations.py`
+  - `verify_violations.py`, `verify_wide.py`: independent re-checks of reported violations
+  - `wide_audit.py`: 40 CWRU recordings (4 speeds, 3 fault types x 3 sizes, normal) with limits
+    taken from an earlier part of each recording, with and without a safety margin
 - **`c2/`**: comparison with exclusion and imputation (linear, spline, LOCF).
 - **`gpu/`**: GPU-vs-reference checks (`compare.py`) and the speed benchmark (`bench.py`).
 - **`kaggle/`**: runs GPU jobs on Kaggle (T4 x2) from a local machine and fetches the results.
@@ -23,11 +25,13 @@ This repository accompanies a paper under review. It contains:
 
 ```
 pip install numpy scipy pytest
-python3 scripts/fetch_cwru.py --out data          # CWRU recordings, checksummed
+python3 scripts/fetch_cwru.py --out data          # 4 CWRU recordings, checksummed
+python3 scripts/fetch_cwru.py --out data_wide --set wide   # 40 recordings for the wider audit
 python3 -m pytest -q -m fast tests/               # about 20 s
 make bin/mdms_twin                                # CPU twin of the CUDA code
 python3 -I gpu/compare.py --bin bin/mdms_twin --suite t5 --out results/t5_twin.jsonl
 python3 -I audit/c3_audit.py --data-dir data --out results/v2/c3_audit_n3000_m100.csv
+python3 -I audit/wide_audit.py --data-dir data_wide --out results/wide/wide_audit_n3000_m100.csv
 python3 -I c2/c2_experiment.py --data-dir data --out results/c2/c2_cwru.csv \
         --only cwru_IR007,cwru_OR007,cwru_B007,cwru_normal
 ```
@@ -38,7 +42,7 @@ python3 -I c2/c2_experiment.py --data-dir data --out results/c2/c2_cwru.csv \
 make all                                          # needs nvcc; builds bin/mdms_gpu (sm_75)
 export KAGGLE_USERNAME=<your kaggle username>
 python3 kaggle/kaggle_job.py list
-python3 kaggle/kaggle_job.py run smoke --approved     # build, unit tests, GPU vs CPU twin
+python3 kaggle/kaggle_job.py run smoke --approved     # build, unit tests, compute-sanitizer, GPU vs CPU twin
 python3 kaggle/kaggle_job.py run validate --approved  # T5/T6 and float32 numerics on the GPU
 python3 kaggle/kaggle_job.py run bench --approved     # speed, both T4s in parallel
 ```

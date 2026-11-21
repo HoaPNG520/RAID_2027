@@ -1,5 +1,5 @@
 # T4 (Turing, sm_75) is the only Kaggle GPU since the P100 retirement.
-NVCC ?= nvcc
+NVCC ?= $(shell command -v nvcc 2>/dev/null || echo /usr/local/cuda/bin/nvcc)
 CXX ?= g++
 ARCH ?= -gencode arch=compute_75,code=sm_75
 NVFLAGS = -O3 -std=c++17 -fmad=false -lineinfo $(ARCH) -Xptxas -v

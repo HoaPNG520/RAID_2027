@@ -44,6 +44,7 @@ JOBS = {
             dict(name="env", cmd="nvidia-smi; nvcc --version; g++ --version | head -1; python3 -c 'import numpy, scipy; print(numpy.__version__, scipy.__version__)'", timeout_sec=120),
             dict(name="build", cmd="make all", timeout_sec=600),
             dict(name="unit_tests", cmd=f"{PY} -m pytest -q -m fast tests/", timeout_sec=600),
+            dict(name="sanitizer", cmd="mkdir -p out && sh scripts/sanitize.sh bin/mdms_gpu out/sanitizer.txt", timeout_sec=1200),
             dict(name="agree_gpu_vs_twin", cmd=f"mkdir -p out && {PY} gpu/bench.py --suite agree --gpu bin/mdms_gpu --twin bin/mdms_twin --out out/agree.jsonl", timeout_sec=1200),
         ],
         collect=["out"]),
@@ -63,9 +64,10 @@ JOBS = {
             dict(name="stumpy", cmd="pip install -q stumpy || true", timeout_sec=600),
             dict(name="speed_two_gpus", cmd=(
                 f"mkdir -p out && ({PY} gpu/bench.py --suite speed --gpu bin/mdms_gpu --twin bin/mdms_twin "
-                f"--out out/speed_d0.jsonl --device 0 --shard 0/2 --stumpy > out/speed_d0.log 2>&1 & "
+                f"--out out/speed_d0.jsonl --device 0 --shard 0/2 --stumpy > out/speed_d0.log 2>&1 & p0=$!; "
                 f"{PY} gpu/bench.py --suite speed --gpu bin/mdms_gpu --twin bin/mdms_twin "
-                f"--out out/speed_d1.jsonl --device 1 --shard 1/2 > out/speed_d1.log 2>&1 & wait)"),
+                f"--out out/speed_d1.jsonl --device 1 --shard 1/2 > out/speed_d1.log 2>&1 & p1=$!; "
+                f"wait $p0; r0=$?; wait $p1; r1=$?; exit $((r0 | r1)))"),
                 timeout_sec=5400),
         ],
         collect=["out"], stop_on_failure=False),
@@ -137,12 +139,29 @@ def record_quota(entry):
         json.dump(q, f, indent=2)
 
 
+STATUS_NEW = re.compile(r"KernelWorkerStatus\.([A-Z_]+)")
+STATUS_OLD = re.compile(r"has status \"?([A-Za-z_]+)")
+
+
+def parse_status(text):
+    """Map `kaggle kernels status` output to queued/running/complete/error/cancel/unknown.
+    Current CLIs print '<id> has status "KernelWorkerStatus.COMPLETE"'; older ones print
+    '<id> has status "complete"'. Only the status token is inspected, never the kernel id."""
+    m = STATUS_NEW.search(text) or STATUS_OLD.search(text)
+    if not m:
+        return None
+    tok = m.group(1).lower()
+    for s in ("queued", "running", "complete", "error", "cancel"):
+        if tok.startswith(s):
+            return s
+    return "unknown"
+
+
 def kernel_status(kid):
     r = run([KAGGLE, "kernels", "status", kid], check=False)
-    text = (r.stdout + r.stderr).lower()
-    for s in ("queued", "running", "complete", "error", "cancel"):
-        if s in text:
-            return s
+    s = parse_status(r.stdout + "\n" + r.stderr)
+    if s:
+        return s
     return "unknown" if r.returncode == 0 else "none"
 
 
@@ -200,7 +219,7 @@ def wait(kid, max_minutes):
 def fetch_and_validate(kid, job_id, sha, out_root=None):
     out = out_root or os.path.join(ROOT, "bench", "raw", job_id)
     os.makedirs(out, exist_ok=True)
-    run([KAGGLE, "kernels", "output", kid, "-p", out], check=False)
+    run([KAGGLE, "kernels", "output", kid, "-p", out, "-o"], check=False)
     path = None
     for dirpath, _, files in os.walk(out):
         if "job_summary.json" in files:

@@ -122,3 +122,17 @@ def test_username_never_from_git_remote(env, monkeypatch):
     monkeypatch.setattr(kj, "KAGGLE", "/bin/false")
     with pytest.raises(SystemExit, match="KAGGLE_USERNAME"):
         kj.kaggle_username()
+
+
+@pytest.mark.fast
+def test_parse_status_formats():
+    sys.path.insert(0, os.path.join(REPO_ROOT, "kaggle"))
+    import kaggle_job as kj
+    assert kj.parse_status('u/mdms-smoke has status "KernelWorkerStatus.COMPLETE"') == "complete"
+    assert kj.parse_status('u/mdms-smoke has status "KernelWorkerStatus.RUNNING"') == "running"
+    assert kj.parse_status('u/mdms-smoke has status "KernelWorkerStatus.CANCEL_ACKNOWLEDGED"') == "cancel"
+    assert kj.parse_status('u/mdms-smoke has status "complete"') == "complete"
+    assert kj.parse_status('u/mdms-smoke has status "error"') == "error"
+    # the kernel id or username must never decide the status
+    assert kj.parse_status('error-runner/mdms-smoke has status "KernelWorkerStatus.QUEUED"') == "queued"
+    assert kj.parse_status("404 Client Error: Not Found") is None

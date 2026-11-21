@@ -221,6 +221,53 @@ for name, args in {
 }.items():
     put(name, pm(*args))
 
+# ---------------- wider audit: 40 recordings, history-based limits ----------------
+wp = os.path.join(RES, "wide", "wide_audit_n3000_m100.csv")
+if os.path.exists(wp):
+    W = list(csv.DictReader(open(wp)))
+    recs = sorted(set(r["recording"] for r in W))
+    put("WideRecs", str(len(recs)))
+    put("WidePairsPerRun", fmt_int(int(next(r for r in W if r["mode"] == "window")["pairs"])))
+
+    def sel(mask=None, mode=None, accepted=True):
+        return [r for r in W if (mask is None or r["mask"] == mask)
+                and (mode is None or r["mode"] == mode)
+                and (not accepted or r["rejected"] == "0")]
+
+    def kind(name):
+        return "IR" if "_IR_" in name else "OR" if "_OR" in name else "B" if "_B_" in name else "N"
+
+    for mk, tag in (("clip_q95", "QFive"), ("clip_q99", "QOne")):
+        for mode, mt in (("window", "Win"), ("global", "Glob")):
+            rs = sel(mk, mode)
+            put(f"Wide{mt}Runs{tag}", str(sum(int(r["row_viol"]) > 0 for r in rs)))
+            put(f"Wide{mt}MaxPct{tag}",
+                f"{max(100 * int(r['row_viol']) / int(r['rows']) for r in rs):.0f}")
+        rs = sel(mk, "window")
+        for k in ("IR", "OR", "B", "N"):
+            put(f"Wide{k}Runs{tag}", str(sum(int(r["row_viol"]) > 0 for r in rs if kind(r["recording"]) == k)))
+            put(f"Wide{k}Total{tag}", str(sum(1 for r in rs if kind(r["recording"]) == k)))
+        put(f"WideTopLostAny{tag}", str(sum(int(r["topk_lost"]) > 0 for r in rs)))
+        put(f"WideTopLostAll{tag}", str(sum(int(r["topk_lost"]) == 10 for r in rs)))
+    put("WideRandBlockRowViolWin", fmt_int(sum(int(r["row_viol"]) for r in W if r["mode"] == "window"
+                                                 and r["mask"] in ("random_5pct", "block_10pct_b30"))))
+    put("WideBlockPairViolWin", fmt_int(sum(int(r["pair_viol"]) for r in sel("block_10pct_b30", "window"))))
+    valid_modes = ("oracle_range", "oracle_ours", "hist_range", "hist_ours", "hist_ours_m10", "hist_ours_m25")
+    put("WideValidViol", fmt_int(sum(int(r["pair_viol"]) + int(r["row_viol"])
+                                     for r in W if r["mode"] in valid_modes and r["rejected"] == "0")))
+    for mode, mt in (("hist_range", "HistRange"), ("hist_ours", "HistOurs"),
+                     ("hist_ours_m10", "MTen"), ("hist_ours_m25", "MTwentyFive")):
+        for mk, tag in (("random_5pct", "Rand"), ("block_10pct_b30", "Block"),
+                        ("clip_q95", "QFive"), ("clip_q99", "QOne")):
+            allr = sel(mk, mode, accepted=False)
+            put(f"Wide{mt}Rej{tag}", str(sum(r["rejected"] == "1" for r in allr)))
+            put(f"Wide{mt}HidOut{tag}", str(sum(int(r["hidden_outside"]) for r in allr if r["rejected"] == "0")))
+    for mode, mt in (("window", "Win"), ("oracle_ours", "OracleOurs"), ("hist_ours_m10", "MTen"),
+                     ("hist_ours_m25", "MTwentyFive")):
+        for mk, tag in (("random_5pct", "Rand"), ("clip_q95", "QFive")):
+            t = [float(r["tightness_median"]) for r in sel(mk, mode)]
+            put(f"WideTight{mt}{tag}", f"{np.median(t):.2f}")
+
 # ---------------- GPU speed (if available) ----------------
 sp = []
 for fn in ("speed_d0.jsonl", "speed_d1.jsonl"):

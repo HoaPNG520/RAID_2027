@@ -2,7 +2,7 @@
   "argv": [
     "audit/c3_audit.py",
     "--data-dir",
-    "/home/claude/work/data",
+    "data",
     "--out",
     "results/c3_audit_n3000_m100_seed1.csv",
     "--n",
