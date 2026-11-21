@@ -71,6 +71,15 @@ JOBS = {
                 timeout_sec=5400),
         ],
         collect=["out"], stop_on_failure=False),
+    "cupy": dict(
+        est_min=15,
+        commands=[
+            dict(name="build", cmd="make all", timeout_sec=600),
+            dict(name="agree_gpu_vs_twin", cmd=f"mkdir -p out && {PY} gpu/bench.py --suite agree --gpu bin/mdms_gpu --twin bin/mdms_twin --out out/agree.jsonl", timeout_sec=1200),
+            dict(name="cupy_install", cmd=f"{PY} -c 'import cupy' 2>/dev/null || pip install -q cupy-cuda12x", timeout_sec=900),
+            dict(name="cupy_check", cmd=f"{PY} gpu/mdms_cupy.py --check bin/mdms_gpu --out out/cupy_check.jsonl", timeout_sec=1800),
+        ],
+        collect=["out"], stop_on_failure=False),
     "bench2": dict(
         est_min=40,
         commands=[

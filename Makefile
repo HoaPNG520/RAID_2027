@@ -11,7 +11,7 @@ bin/mdms_twin: src/mdms_twin.cpp src/mdms_core.cuh src/host_common.hpp
 	@mkdir -p bin
 	$(CXX) $(CXXFLAGS) -o $@ src/mdms_twin.cpp
 
-bin/mdms_gpu: src/mdms_gpu.cu src/mdms_core.cuh src/host_common.hpp
+bin/mdms_gpu: src/mdms_gpu.cu src/mdms_kernels.cuh src/mdms_core.cuh src/host_common.hpp
 	@mkdir -p bin
 	$(NVCC) $(NVFLAGS) -o $@ src/mdms_gpu.cu
 
