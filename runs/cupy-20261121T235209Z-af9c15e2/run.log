@@ -1,0 +1,15 @@
+job cupy: commit af9c15e2f5 on kaggle/cupy-2; estimate 0.25 GPU-h; used this week 0.31/20.0 h
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/haphngngcgia/mdms-cupy 
+[23:50:35] haphngngcgia/mdms-cupy: queued
+[23:50:55] haphngngcgia/mdms-cupy: running
+[23:51:26] haphngngcgia/mdms-cupy: running
+[23:52:06] haphngngcgia/mdms-cupy: complete
+
+status: complete; outputs: /home/runner/work/RAID_2027/RAID_2027/bench/raw/cupy-20261121T235030Z-af9c15e2
+  git clone --quiet --branch kaggle/cupy-2 rc=0 0.816s
+  git checkout --quiet af9c15e2f5bd56ca36f rc=0 0.016s
+  build                                    rc=0 7.983s
+  agree_gpu_vs_twin                        rc=0 48.374s
+  cupy_install                             rc=0 5.075s
+  cupy_check                               rc=0 7.884s
+VALID: job_summary matches the job id, the commit and the GPU; all steps rc=0

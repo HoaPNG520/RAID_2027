@@ -1,0 +1,9 @@
+{"n": 3000, "m": 100, "precision": "f64", "vlimits": "window", "finite_equal": true, "max_rel_diff": 6.890511155487195e-14, "index_equal_frac": 1.0, "tol": 1e-09, "ok": true}
+{"n": 3000, "m": 100, "precision": "f64", "vlimits": "declared", "finite_equal": true, "max_rel_diff": 1.503109082402286e-15, "index_equal_frac": 1.0, "tol": 1e-09, "ok": true}
+{"n": 3000, "m": 100, "precision": "f32c", "vlimits": "window", "finite_equal": true, "max_rel_diff": 0.0, "index_equal_frac": 1.0, "tol": 1e-05, "ok": true}
+{"n": 3000, "m": 100, "precision": "f32c", "vlimits": "declared", "finite_equal": true, "max_rel_diff": 0.0, "index_equal_frac": 1.0, "tol": 1e-05, "ok": true}
+{"n": 20000, "m": 64, "precision": "f64", "vlimits": "window", "finite_equal": true, "max_rel_diff": 5.48970526520013e-13, "index_equal_frac": 1.0, "tol": 1e-09, "ok": true}
+{"n": 20000, "m": 64, "precision": "f64", "vlimits": "declared", "finite_equal": true, "max_rel_diff": 1.9926399649502982e-13, "index_equal_frac": 1.0, "tol": 1e-09, "ok": true}
+{"n": 20000, "m": 64, "precision": "f32c", "vlimits": "window", "finite_equal": true, "max_rel_diff": 0.0, "index_equal_frac": 1.0, "tol": 1e-05, "ok": true}
+{"n": 20000, "m": 64, "precision": "f32c", "vlimits": "declared", "finite_equal": true, "max_rel_diff": 0.0, "index_equal_frac": 1.0, "tol": 1e-05, "ok": true}
+CUPY: PASS

@@ -1,0 +1,12 @@
+{"n": 3000, "m": 100, "precision": "f64", "vlimits": "window", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}
+{"n": 3000, "m": 100, "precision": "f64", "vlimits": "declared", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}
+{"n": 3000, "m": 100, "precision": "f32c", "vlimits": "window", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}
+{"n": 3000, "m": 100, "precision": "f32c", "vlimits": "declared", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}
+{"n": 3000, "m": 100, "precision": "f32", "vlimits": "window", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}
+{"n": 3000, "m": 100, "precision": "f32", "vlimits": "declared", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}
+{"n": 20000, "m": 64, "precision": "f64", "vlimits": "window", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}
+{"n": 20000, "m": 64, "precision": "f64", "vlimits": "declared", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}
+{"n": 20000, "m": 64, "precision": "f32c", "vlimits": "window", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}
+{"n": 20000, "m": 64, "precision": "f32c", "vlimits": "declared", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}
+{"n": 20000, "m": 64, "precision": "f32", "vlimits": "window", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}
+{"n": 20000, "m": 64, "precision": "f32", "vlimits": "declared", "finite_equal": true, "bitwise_equal_frac": 1.0, "max_abs_diff": 0.0, "index_equal_frac": 1.0, "device": "Tesla T4", "pass": true}

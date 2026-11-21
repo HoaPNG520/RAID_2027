@@ -1,0 +1,69 @@
+{
+  "job_id": "cupy-20261121T235030Z-af9c15e2",
+  "job": "cupy",
+  "requested_sha": "af9c15e2f5bd56ca36f4d641190fe9181148890d",
+  "branch": "kaggle/cupy-2",
+  "started_unix": 1795305038.017799,
+  "steps": [
+    {
+      "cmd": "git clone --quiet --branch kaggle/cupy-2 https://github.com/HoaPNG520/RAID_2027 /kaggle/temp/repo",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 0.816,
+      "log": "00_clone.log"
+    },
+    {
+      "cmd": "git checkout --quiet af9c15e2f5bd56ca36f4d641190fe9181148890d",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 0.016,
+      "log": "01_checkout.log"
+    },
+    {
+      "cmd": "make all",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 7.983,
+      "log": "02_build.log",
+      "name": "build"
+    },
+    {
+      "cmd": "mkdir -p out && python3 -I gpu/bench.py --suite agree --gpu bin/mdms_gpu --twin bin/mdms_twin --out out/agree.jsonl",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 48.374,
+      "log": "03_agree_gpu_vs_twin.log",
+      "name": "agree_gpu_vs_twin"
+    },
+    {
+      "cmd": "python3 -I -c 'import cupy' 2>/dev/null || pip install -q cupy-cuda12x",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 5.075,
+      "log": "04_cupy_install.log",
+      "name": "cupy_install"
+    },
+    {
+      "cmd": "python3 -I gpu/mdms_cupy.py --check bin/mdms_gpu --out out/cupy_check.jsonl",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 7.884,
+      "log": "05_cupy_check.log",
+      "name": "cupy_check"
+    }
+  ],
+  "ok": true,
+  "gpus": [
+    "Tesla T4, 15360 MiB, 580.178.04",
+    "Tesla T4, 15360 MiB, 580.178.04"
+  ],
+  "nvcc_version": [
+    "Build cuda_13.0.r13.0/compiler.36424714_0"
+  ],
+  "python": "3.13.16",
+  "checked_out_sha": "af9c15e2f5bd56ca36f4d641190fe9181148890d",
+  "collected": [
+    "out/"
+  ],
+  "seconds": 70.218
+}
