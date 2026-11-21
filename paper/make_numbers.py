@@ -130,6 +130,22 @@ put("CovOneTenth", f"{nums[0]:.0f}")
 put("CovOne", f"{nums[3]:.0f}")
 put("CovFive", f"{nums[5]:.1f}")
 
+
+def tex_escape(t):
+    for a, b in (("\\", " "), ("%", "\\%"), ("_", "\\_"), ("&", "\\&"), ("#", "\\#"),
+                 ("^", ""), ("$", ""), ("{", ""), ("}", ""), ("~", " ")):
+        t = t.replace(a, b)
+    return t
+
+
+# alt text for every figure, as macros for \includegraphics[alt=...] and as a plain file
+for key, txt in alt.items():
+    name = "Alt" + "".join(w.capitalize() for w in key.split("_"))
+    put(name, tex_escape(txt))
+with open(os.path.join(ROOT, "paper", "figures", "alt_text.txt"), "w") as fh:
+    for key, txt in alt.items():
+        fh.write(f"{key}:\n{txt}\n\n")
+
 # ---------------- C2 ----------------
 c2 = []
 for fn in ("c2_cwru.csv", "c2_planted.csv"):

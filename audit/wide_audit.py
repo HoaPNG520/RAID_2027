@@ -105,6 +105,8 @@ def main(argv=None):
     ap.add_argument("--m", type=int, default=100)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--only", default=None, help="comma-separated recording names")
+    ap.add_argument("--seg0", type=int, default=SEG0, help="first sample of the analysed segment; "
+                    "the history is the HIST samples before it")
     a = ap.parse_args(argv)
     recs = recordings(a.data_dir)
     if a.only:
@@ -115,15 +117,17 @@ def main(argv=None):
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     rows, t0 = [], time.time()
     for name, de in recs.items():
-        Tc = de[SEG0:SEG0 + a.n].copy()
-        H = de[SEG0 - HIST:SEG0].copy()
+        if a.seg0 < HIST or a.seg0 + a.n > len(de):
+            raise SystemExit(f"{name}: segment {a.seg0}..{a.seg0 + a.n} does not fit ({len(de)} samples)")
+        Tc = de[a.seg0:a.seg0 + a.n].copy()
+        H = de[a.seg0 - HIST:a.seg0].copy()
         modes = modes_for(Tc, H)
         for mname, mask in masks_for(Tc, a.m, a.seed).items():
             ok = {k: accepted(Tc, mask, a.m, v) for k, v in modes.items()}
             live = {k: v for k, v in modes.items() if ok[k]}
             res = audit_one(Tc, mask, a.m, live)
             for mode in modes:
-                base = dict(recording=name, mask=mname, mode=mode, n=a.n, m=a.m, seed=a.seed,
+                base = dict(recording=name, mask=mname, mode=mode, n=a.n, m=a.m, seed=a.seed, seg0=a.seg0,
                             rejected=int(not ok[mode]),
                             hidden_outside=int(_hidden_outside(Tc, mask, modes[mode])))
                 rows.append({**base, **res.get(mode, {})})
@@ -143,7 +147,7 @@ def main(argv=None):
         wr.writeheader()
         wr.writerows(rows)
     with open(os.path.splitext(a.out)[0] + ".meta.json", "w") as f:
-        json.dump(dict(argv=sys.argv, n=a.n, m=a.m, seed=a.seed, recordings=list(recs),
+        json.dump(dict(argv=sys.argv, n=a.n, m=a.m, seed=a.seed, seg0=a.seg0, recordings=list(recs),
                        seconds=time.time() - t0), f, indent=2)
     print("wrote", a.out)
 
