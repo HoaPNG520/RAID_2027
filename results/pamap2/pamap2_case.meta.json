@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "audit/pamap2_case.py",
+    "--data-dir",
+    "/home/claude/work/pamap2_in/pamap2_out",
+    "--out",
+    "results/pamap2/pamap2_case.csv"
+  ],
+  "files": [
+    "protocol_subject101.npz",
+    "protocol_subject102.npz",
+    "protocol_subject103.npz",
+    "protocol_subject104.npz",
+    "protocol_subject105.npz",
+    "protocol_subject106.npz",
+    "protocol_subject107.npz",
+    "protocol_subject108.npz",
+    "protocol_subject109.npz"
+  ],
+  "seconds": 9.412700653076172
+}

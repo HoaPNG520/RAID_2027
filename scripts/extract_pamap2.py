@@ -4,9 +4,9 @@ Extract the accelerometer channels of PAMAP2 (Reiss and Stricker, ISWC 2012; UCI
 CC BY 4.0) for the real-saturation case study.
 
 Every PAMAP2 IMU carries two co-located 3-axis accelerometers: one with a +-16 g range and one
-with a +-6 g range. The dataset's readme notes that the +-6 g sensor saturates during
-high-impact movements (e.g. running) and is not precisely calibrated against the +-16 g one.
-This gives real saturation with a co-located reference for the lost values.
+with a +-6 g range. In the data the +-6 g sensor sits at its rails (about +-6.3 g) during
+high-impact movements such as running, while the +-16 g one does not: real saturation with a
+co-located reference for the lost values.
 
 Input : the UCI zip (outer zip containing PAMAP2_Dataset.zip, or the inner zip itself).
 Output: one compressed .npz per subject and session with

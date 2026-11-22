@@ -323,6 +323,31 @@ put("RobMTwentyFiveHid", str(rob_m25_hid))
 put("RobMTwentyFiveRejMax", str(rob_m25_rej_max))
 put("RobMTenHidMax", str(rob_m10_hid_max))
 
+# ---------------- real saturation: PAMAP2 case study ----------------
+pp = os.path.join(RES, "pamap2", "pamap2_case.csv")
+if os.path.exists(pp):
+    PR = list(csv.DictReader(open(pp)))
+    segs = [r for r in PR if r["mode"] == "window"]
+    G_ = 9.80665
+    put("PamSegs", str(len(segs)))
+    put("PamSubjects", str(len(set(r["file"] for r in segs))))
+    put("PamSatMedPct", f"{100 * np.median([float(r['sat_frac']) for r in segs]):.1f}")
+    put("PamSatMaxPct", f"{100 * max(float(r['sat_frac']) for r in segs):.0f}")
+    put("PamHidMaxMedG", f"{np.median([float(r['hidden_max_g']) for r in segs]):.1f}")
+    put("PamCalRmsMaxG", f"{max(float(r['calib_rms']) for r in segs) / G_:.2f}")
+    put("PamCalRmsMedG", f"{np.median([float(r['calib_rms']) for r in segs]) / G_:.2f}")
+    put("PamLagCorrMin", f"{min(float(r['lag_corr']) for r in segs):.2f}")
+    for mode, tag in (("window", "Win"), ("global", "Glob"), ("sensor_range", "Sensor"), ("physical", "Phys"),
+                      ("physical_ours", "PhysOurs")):
+        acc_ = [r for r in PR if r["mode"] == mode and r["rejected"] == "0"]
+        put(f"Pam{tag}Segs", str(sum(int(r["row_viol"]) > 0 for r in acc_)))
+        put(f"Pam{tag}Rows", fmt_int(sum(int(r["row_viol"]) for r in acc_)))
+        put(f"Pam{tag}Ratio", f"{max(float(r['max_ratio']) for r in acc_):.2f}")
+        put(f"Pam{tag}TopLost", str(sum(int(r["topk_lost"]) > 0 for r in acc_)))
+        put(f"Pam{tag}Rej", str(sum(1 for r in PR if r["mode"] == mode and r["rejected"] == "1")))
+        put(f"Pam{tag}Viol", fmt_int(sum(int(r["row_viol"]) + int(r["pair_viol"]) for r in acc_)))
+    put("PamWindowsPerSeg", fmt_int(int(segs[0]["rows"])))
+
 # ---------------- GPU speed (if available) ----------------
 sp = []
 for fn in ("speed_d0.jsonl", "speed_d1.jsonl"):
