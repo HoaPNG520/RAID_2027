@@ -16,7 +16,8 @@ else
   git worktree add -q --detach "$WT"
   (cd "$WT" && git checkout -q --orphan gpu-results && git rm -rqf . && git clean -fdxq)
 fi
-RUN="$WT/runs/${JOB}-${STAMP}-$(echo "$SHA" | cut -c1-8)"
+# GITHUB_RUN_ID (or the shell's pid) keeps two runs of one commit in the same second apart
+RUN="$WT/runs/${JOB}-${STAMP}-$(echo "$SHA" | cut -c1-8)-${GITHUB_RUN_ID:-$$}"
 mkdir -p "$RUN"
 [ -f "$LOG" ] && cp "$LOG" "$RUN/run.log"
 if [ -d bench/raw ]; then cp -r bench/raw/. "$RUN/"; fi
