@@ -284,6 +284,39 @@ if os.path.exists(wp):
             t = [float(r["tightness_median"]) for r in sel(mk, mode)]
             put(f"WideTight{mt}{tag}", f"{np.median(t):.2f}")
 
+# ---------------- wider audit: robustness runs ----------------
+ROB = (("RobFifty", "wide_audit_n3000_m50.csv"), ("RobHundred", "wide_audit_n3000_m100.csv"),
+       ("RobTwoHundred", "wide_audit_n3000_m200.csv"), ("RobSegTwo", "wide_audit_n3000_m100_seg40000.csv"),
+       ("RobSeedTwo", "wide_audit_n3000_m100_seed1.csv"))
+rob_valid_total = 0
+rob_m25_hid = rob_m25_rej_max = rob_m10_hid_max = 0
+for tag, fn in ROB:
+    p_ = os.path.join(RES, "wide", fn)
+    if not os.path.exists(p_):
+        continue
+    R = list(csv.DictReader(open(p_)))
+    ok_ = [r for r in R if r["rejected"] == "0"]
+    for mk, mt in (("clip_q95", "QFive"), ("clip_q99", "QOne"), ("random_5pct", "Rand"), ("block_10pct_b30", "Block")):
+        put(f"{tag}{mt}", str(sum(int(r["row_viol"]) > 0 for r in ok_ if r["mode"] == "window" and r["mask"] == mk)))
+    rand_rows = [int(r["row_viol"]) for r in ok_ if r["mode"] == "window" and r["mask"] in ("random_5pct", "block_10pct_b30")]
+    put(f"{tag}RandMaxRows", str(max(rand_rows)))
+    rr = [float(r["max_ratio"]) for r in ok_ if r["mode"] == "window" and r["mask"] in ("random_5pct", "block_10pct_b30")
+          and int(r["row_viol"]) > 0]
+    put(f"{tag}RandMaxRatio", f"{max(rr):.2f}" if rr else "--")
+    valid_modes_ = ("oracle_range", "oracle_ours", "hist_range", "hist_ours", "hist_ours_m10", "hist_ours_m25")
+    rob_valid_total += sum(int(r["row_viol"]) + int(r["pair_viol"]) for r in ok_ if r["mode"] in valid_modes_)
+    m25 = [r for r in R if r["mode"] == "hist_ours_m25"]
+    rob_m25_hid += sum(int(r["hidden_outside"]) for r in m25 if r["rejected"] == "0")
+    rob_m25_rej_max = max(rob_m25_rej_max, max(sum(r["rejected"] == "1" for r in m25 if r["mask"] == mk)
+                                               for mk in set(r["mask"] for r in m25)))
+    m10 = [r for r in R if r["mode"] == "hist_ours_m10" and r["rejected"] == "0"]
+    rob_m10_hid_max = max(rob_m10_hid_max, max(sum(int(r["hidden_outside"]) for r in m10 if r["mask"] == mk)
+                                               for mk in set(r["mask"] for r in m10)))
+put("RobValidViol", fmt_int(rob_valid_total))
+put("RobMTwentyFiveHid", str(rob_m25_hid))
+put("RobMTwentyFiveRejMax", str(rob_m25_rej_max))
+put("RobMTenHidMax", str(rob_m10_hid_max))
+
 # ---------------- GPU speed (if available) ----------------
 sp = []
 for fn in ("speed_d0.jsonl", "speed_d1.jsonl"):
@@ -356,6 +389,14 @@ if os.path.exists(sf):
     put("SfMaxDiff", sci(max(r["profile_max_abs_diff"] for r in F)))
     put("SfIdxEq", "all" if all(r["index_equal_frac"] == 1.0 for r in F) else "not all")
     put("SfVersion", F[0]["stumpy_version"])
+
+# ---------------- CuPy launcher vs. the C++ binary (cupy job) ----------------
+cc = os.path.join(RES, "gpu", "cupy_check.jsonl")
+if os.path.exists(cc):
+    C = [json.loads(l) for l in open(cc) if l.strip()]
+    put("CupyCases", str(len(C)))
+    put("CupyPass", str(sum(bool(r["ok"]) and r["index_equal_frac"] == 1.0 for r in C)))
+    put("CupyFSixtyFourDiff", sci(max(r["max_rel_diff"] for r in C if r["precision"] == "f64")))
 
 # ---------------- GPU validation (smoke + validate jobs) ----------------
 ag = os.path.join(RES, "gpu", "agree_smoke.jsonl")
