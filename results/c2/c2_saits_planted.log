@@ -1,0 +1,409 @@
+2026-11-22 07:32:57 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[   27.5s] planted_random_walk random_5 s0: top1=0 planted=False nrmse=0.592 (27.4s)
+2026-11-22 07:33:20 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[   51.3s] planted_random_walk random_10 s0: top1=0 planted=False nrmse=0.536 (23.7s)
+2026-11-22 07:33:44 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[   75.1s] planted_random_walk random_20 s0: top1=0 planted=False nrmse=0.536 (23.8s)
+2026-11-22 07:34:07 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[   98.7s] planted_random_walk random_40 s0: top1=0 planted=False nrmse=0.572 (23.6s)
+2026-11-22 07:34:31 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  123.8s] planted_random_walk block_10_b10 s0: top1=0 planted=True nrmse=0.533 (25.2s)
+2026-11-22 07:34:56 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  150.8s] planted_random_walk block_10_b30 s0: top1=1 planted=True nrmse=0.399 (27.0s)
+2026-11-22 07:35:23 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  174.1s] planted_random_walk block_10_b50 s0: top1=1 planted=True nrmse=0.148 (23.3s)
+2026-11-22 07:35:46 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  197.1s] planted_random_walk block_20_b10 s0: top1=0 planted=False nrmse=0.526 (23.0s)
+2026-11-22 07:36:09 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  219.9s] planted_random_walk block_20_b30 s0: top1=0 planted=False nrmse=0.502 (22.8s)
+2026-11-22 07:36:32 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  242.6s] planted_random_walk block_20_b50 s0: top1=1 planted=True nrmse=0.594 (22.7s)
+2026-11-22 07:36:55 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  265.8s] planted_random_walk block_40_b10 s0: top1=0 planted=False nrmse=0.625 (23.3s)
+2026-11-22 07:37:18 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  289.2s] planted_random_walk block_40_b30 s0: top1=0 planted=False nrmse=0.498 (23.4s)
+2026-11-22 07:37:41 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  312.0s] planted_random_walk block_40_b50 s0: top1=0 planted=False nrmse=0.670 (22.8s)
+2026-11-22 07:38:04 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  336.2s] planted_random_walk random_5 s1: top1=0 planted=False nrmse=0.675 (24.2s)
+2026-11-22 07:38:28 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  360.3s] planted_random_walk random_10 s1: top1=0 planted=False nrmse=0.558 (24.0s)
+2026-11-22 07:38:53 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  383.6s] planted_random_walk random_20 s1: top1=0 planted=False nrmse=0.597 (23.3s)
+2026-11-22 07:39:16 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  408.1s] planted_random_walk random_40 s1: top1=0 planted=False nrmse=0.561 (24.5s)
+2026-11-22 07:39:40 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  433.1s] planted_random_walk block_10_b10 s1: top1=1 planted=True nrmse=0.432 (24.9s)
+2026-11-22 07:40:05 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  455.7s] planted_random_walk block_10_b30 s1: top1=1 planted=True nrmse=0.145 (22.7s)
+2026-11-22 07:40:28 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  479.2s] planted_random_walk block_10_b50 s1: top1=0 planted=True nrmse=0.330 (23.4s)
+2026-11-22 07:40:51 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  503.1s] planted_random_walk block_20_b10 s1: top1=1 planted=False nrmse=0.479 (23.9s)
+2026-11-22 07:41:15 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  526.4s] planted_random_walk block_20_b30 s1: top1=1 planted=True nrmse=0.240 (23.3s)
+2026-11-22 07:41:39 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  549.8s] planted_random_walk block_20_b50 s1: top1=0 planted=True nrmse=0.293 (23.4s)
+2026-11-22 07:42:02 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  573.2s] planted_random_walk block_40_b10 s1: top1=0 planted=False nrmse=0.588 (23.4s)
+2026-11-22 07:42:25 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  596.6s] planted_random_walk block_40_b30 s1: top1=0 planted=False nrmse=0.673 (23.4s)
+2026-11-22 07:42:49 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  620.6s] planted_random_walk block_40_b50 s1: top1=0 planted=False nrmse=0.582 (24.0s)
+2026-11-22 07:43:13 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  643.6s] planted_random_walk random_5 s2: top1=0 planted=False nrmse=0.572 (23.0s)
+2026-11-22 07:43:36 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  666.2s] planted_random_walk random_10 s2: top1=0 planted=False nrmse=0.597 (22.7s)
+2026-11-22 07:43:58 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  689.2s] planted_random_walk random_20 s2: top1=0 planted=False nrmse=0.646 (22.9s)
+2026-11-22 07:44:21 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  713.5s] planted_random_walk random_40 s2: top1=0 planted=False nrmse=0.545 (24.3s)
+2026-11-22 07:44:46 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  737.0s] planted_random_walk block_10_b10 s2: top1=0 planted=False nrmse=0.901 (23.5s)
+2026-11-22 07:45:09 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  759.7s] planted_random_walk block_10_b30 s2: top1=1 planted=True nrmse=0.492 (22.8s)
+2026-11-22 07:45:32 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  782.4s] planted_random_walk block_10_b50 s2: top1=1 planted=True nrmse=0.579 (22.7s)
+2026-11-22 07:45:55 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  805.6s] planted_random_walk block_20_b10 s2: top1=0 planted=False nrmse=0.800 (23.1s)
+2026-11-22 07:46:18 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  827.6s] planted_random_walk block_20_b30 s2: top1=0 planted=False nrmse=1.011 (22.0s)
+2026-11-22 07:46:40 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  849.8s] planted_random_walk block_20_b50 s2: top1=0 planted=False nrmse=0.773 (22.2s)
+2026-11-22 07:47:02 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  872.6s] planted_random_walk block_40_b10 s2: top1=0 planted=False nrmse=0.630 (22.8s)
+2026-11-22 07:47:25 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  895.0s] planted_random_walk block_40_b30 s2: top1=0 planted=False nrmse=0.751 (22.5s)
+2026-11-22 07:47:47 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  918.2s] planted_random_walk block_40_b50 s2: top1=0 planted=False nrmse=0.758 (23.2s)
+2026-11-22 07:48:10 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  941.2s] planted_random_walk random_5 s3: top1=1 planted=False nrmse=0.601 (23.0s)
+2026-11-22 07:48:33 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  964.9s] planted_random_walk random_10 s3: top1=0 planted=False nrmse=0.576 (23.6s)
+2026-11-22 07:48:57 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[  987.9s] planted_random_walk random_20 s3: top1=0 planted=False nrmse=0.544 (23.1s)
+2026-11-22 07:49:20 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1011.2s] planted_random_walk random_40 s3: top1=0 planted=False nrmse=0.638 (23.3s)
+2026-11-22 07:49:43 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1034.5s] planted_random_walk block_10_b10 s3: top1=0 planted=False nrmse=0.898 (23.3s)
+2026-11-22 07:50:07 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1057.9s] planted_random_walk block_10_b30 s3: top1=1 planted=True nrmse=0.728 (23.4s)
+2026-11-22 07:50:30 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1080.9s] planted_random_walk block_10_b50 s3: top1=1 planted=True nrmse=0.946 (23.1s)
+2026-11-22 07:50:53 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1105.8s] planted_random_walk block_20_b10 s3: top1=0 planted=False nrmse=0.704 (24.9s)
+2026-11-22 07:51:18 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1129.7s] planted_random_walk block_20_b30 s3: top1=0 planted=False nrmse=0.758 (23.9s)
+2026-11-22 07:51:42 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1153.3s] planted_random_walk block_20_b50 s3: top1=0 planted=False nrmse=0.962 (23.5s)
+2026-11-22 07:52:06 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1176.9s] planted_random_walk block_40_b10 s3: top1=0 planted=False nrmse=0.645 (23.6s)
+2026-11-22 07:52:29 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1203.3s] planted_random_walk block_40_b30 s3: top1=0 planted=False nrmse=0.652 (26.4s)
+2026-11-22 07:52:55 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1227.8s] planted_random_walk block_40_b50 s3: top1=0 planted=False nrmse=0.841 (24.5s)
+2026-11-22 07:53:20 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1251.5s] planted_random_walk random_5 s4: top1=0 planted=False nrmse=0.368 (23.7s)
+2026-11-22 07:53:44 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1276.6s] planted_random_walk random_10 s4: top1=0 planted=False nrmse=0.592 (25.1s)
+2026-11-22 07:54:09 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1302.2s] planted_random_walk random_20 s4: top1=0 planted=False nrmse=0.595 (25.7s)
+2026-11-22 07:54:34 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1325.8s] planted_random_walk random_40 s4: top1=0 planted=False nrmse=0.585 (23.6s)
+2026-11-22 07:54:58 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1349.8s] planted_random_walk block_10_b10 s4: top1=0 planted=False nrmse=0.779 (24.0s)
+2026-11-22 07:55:22 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1375.3s] planted_random_walk block_10_b30 s4: top1=0 planted=False nrmse=0.998 (25.4s)
+2026-11-22 07:55:48 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1399.0s] planted_random_walk block_10_b50 s4: top1=0 planted=True nrmse=0.946 (23.8s)
+2026-11-22 07:56:11 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1423.3s] planted_random_walk block_20_b10 s4: top1=0 planted=False nrmse=0.720 (24.3s)
+2026-11-22 07:56:36 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1447.6s] planted_random_walk block_20_b30 s4: top1=0 planted=False nrmse=0.720 (24.3s)
+2026-11-22 07:57:00 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1471.3s] planted_random_walk block_20_b50 s4: top1=0 planted=False nrmse=0.923 (23.6s)
+2026-11-22 07:57:23 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1495.0s] planted_random_walk block_40_b10 s4: top1=0 planted=False nrmse=0.757 (23.7s)
+2026-11-22 07:57:47 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1517.5s] planted_random_walk block_40_b30 s4: top1=0 planted=False nrmse=0.694 (22.6s)
+2026-11-22 07:58:10 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1540.7s] planted_random_walk block_40_b50 s4: top1=0 planted=False nrmse=0.678 (23.2s)
+2026-11-22 07:58:33 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1564.7s] planted_random_walk clip_q99 s0: top1=1 planted=False nrmse=2.802 (24.0s)
+2026-11-22 07:58:57 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1589.0s] planted_random_walk clip_q98 s0: top1=0 planted=False nrmse=2.780 (24.3s)
+2026-11-22 07:59:21 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1614.1s] planted_random_walk clip_q95 s0: top1=0 planted=False nrmse=2.346 (25.1s)
+2026-11-22 07:59:47 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1640.0s] planted_sine_noise random_5 s0: top1=1 planted=False nrmse=0.654 (25.7s)
+2026-11-22 08:00:12 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1664.8s] planted_sine_noise random_10 s0: top1=0 planted=False nrmse=0.995 (24.8s)
+2026-11-22 08:00:37 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1691.1s] planted_sine_noise random_20 s0: top1=0 planted=False nrmse=0.857 (26.2s)
+2026-11-22 08:01:03 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1716.1s] planted_sine_noise random_40 s0: top1=0 planted=False nrmse=0.959 (25.1s)
+2026-11-22 08:01:28 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1741.3s] planted_sine_noise block_10_b10 s0: top1=0 planted=False nrmse=1.012 (25.2s)
+2026-11-22 08:01:54 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1765.2s] planted_sine_noise block_10_b30 s0: top1=1 planted=True nrmse=1.132 (23.9s)
+2026-11-22 08:02:17 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1789.4s] planted_sine_noise block_10_b50 s0: top1=1 planted=True nrmse=0.117 (24.2s)
+2026-11-22 08:02:42 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1821.5s] planted_sine_noise block_20_b10 s0: top1=0 planted=False nrmse=0.983 (32.1s)
+2026-11-22 08:03:14 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1856.6s] planted_sine_noise block_20_b30 s0: top1=0 planted=False nrmse=1.252 (35.1s)
+2026-11-22 08:03:49 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1891.5s] planted_sine_noise block_20_b50 s0: top1=0 planted=True nrmse=1.146 (34.9s)
+2026-11-22 08:04:24 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1927.4s] planted_sine_noise block_40_b10 s0: top1=0 planted=False nrmse=0.933 (35.8s)
+2026-11-22 08:05:00 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1964.1s] planted_sine_noise block_40_b30 s0: top1=0 planted=False nrmse=0.898 (36.7s)
+2026-11-22 08:05:36 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 1999.0s] planted_sine_noise block_40_b50 s0: top1=0 planted=False nrmse=1.144 (34.9s)
+2026-11-22 08:06:11 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2033.9s] planted_sine_noise random_5 s1: top1=0 planted=False nrmse=0.657 (35.0s)
+2026-11-22 08:06:46 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2070.4s] planted_sine_noise random_10 s1: top1=0 planted=False nrmse=0.899 (36.5s)
+2026-11-22 08:07:23 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2106.1s] planted_sine_noise random_20 s1: top1=0 planted=False nrmse=1.003 (35.7s)
+2026-11-22 08:07:58 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2142.2s] planted_sine_noise random_40 s1: top1=0 planted=False nrmse=0.985 (36.1s)
+2026-11-22 08:08:34 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2167.5s] planted_sine_noise block_10_b10 s1: top1=0 planted=False nrmse=0.979 (25.3s)
+2026-11-22 08:09:00 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2190.7s] planted_sine_noise block_10_b30 s1: top1=0 planted=True nrmse=1.033 (23.2s)
+2026-11-22 08:09:23 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2213.6s] planted_sine_noise block_10_b50 s1: top1=0 planted=True nrmse=1.105 (22.9s)
+2026-11-22 08:09:46 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2236.4s] planted_sine_noise block_20_b10 s1: top1=0 planted=False nrmse=0.976 (22.8s)
+2026-11-22 08:10:09 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2258.9s] planted_sine_noise block_20_b30 s1: top1=0 planted=True nrmse=0.736 (22.5s)
+2026-11-22 08:10:31 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2281.8s] planted_sine_noise block_20_b50 s1: top1=0 planted=True nrmse=0.807 (22.8s)
+2026-11-22 08:10:54 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2305.7s] planted_sine_noise block_40_b10 s1: top1=0 planted=False nrmse=1.085 (23.9s)
+2026-11-22 08:11:18 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2328.7s] planted_sine_noise block_40_b30 s1: top1=0 planted=False nrmse=1.191 (23.0s)
+2026-11-22 08:11:41 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2351.9s] planted_sine_noise block_40_b50 s1: top1=0 planted=False nrmse=1.031 (23.2s)
+2026-11-22 08:12:04 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2374.6s] planted_sine_noise random_5 s2: top1=0 planted=False nrmse=1.044 (22.8s)
+2026-11-22 08:12:27 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2396.7s] planted_sine_noise random_10 s2: top1=0 planted=False nrmse=1.029 (22.1s)
+2026-11-22 08:12:49 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2418.9s] planted_sine_noise random_20 s2: top1=0 planted=False nrmse=1.116 (22.2s)
+2026-11-22 08:13:11 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2441.5s] planted_sine_noise random_40 s2: top1=0 planted=False nrmse=0.981 (22.6s)
+2026-11-22 08:13:34 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2464.1s] planted_sine_noise block_10_b10 s2: top1=0 planted=False nrmse=0.827 (22.6s)
+2026-11-22 08:13:56 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2486.2s] planted_sine_noise block_10_b30 s2: top1=1 planted=True nrmse=0.114 (22.1s)
+2026-11-22 08:14:18 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2509.3s] planted_sine_noise block_10_b50 s2: top1=1 planted=True nrmse=0.118 (23.0s)
+2026-11-22 08:14:42 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2532.3s] planted_sine_noise block_20_b10 s2: top1=0 planted=False nrmse=1.016 (23.1s)
+2026-11-22 08:15:05 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2555.1s] planted_sine_noise block_20_b30 s2: top1=0 planted=True nrmse=0.540 (22.8s)
+2026-11-22 08:15:27 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2577.5s] planted_sine_noise block_20_b50 s2: top1=1 planted=True nrmse=0.113 (22.4s)
+2026-11-22 08:15:50 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2600.3s] planted_sine_noise block_40_b10 s2: top1=0 planted=False nrmse=0.994 (22.8s)
+2026-11-22 08:16:13 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2622.5s] planted_sine_noise block_40_b30 s2: top1=0 planted=False nrmse=1.045 (22.2s)
+2026-11-22 08:16:35 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2645.3s] planted_sine_noise block_40_b50 s2: top1=0 planted=False nrmse=0.866 (22.8s)
+2026-11-22 08:16:58 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2667.6s] planted_sine_noise random_5 s3: top1=0 planted=False nrmse=1.146 (22.3s)
+2026-11-22 08:17:20 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2690.2s] planted_sine_noise random_10 s3: top1=0 planted=False nrmse=1.083 (22.6s)
+2026-11-22 08:17:42 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2712.3s] planted_sine_noise random_20 s3: top1=0 planted=False nrmse=0.908 (22.1s)
+2026-11-22 08:18:05 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2735.7s] planted_sine_noise random_40 s3: top1=0 planted=False nrmse=1.067 (23.4s)
+2026-11-22 08:18:28 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2758.4s] planted_sine_noise block_10_b10 s3: top1=1 planted=True nrmse=0.752 (22.6s)
+2026-11-22 08:18:51 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2781.5s] planted_sine_noise block_10_b30 s3: top1=0 planted=False nrmse=0.988 (23.1s)
+2026-11-22 08:19:14 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2805.0s] planted_sine_noise block_10_b50 s3: top1=0 planted=False nrmse=1.162 (23.6s)
+2026-11-22 08:19:37 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2828.3s] planted_sine_noise block_20_b10 s3: top1=0 planted=False nrmse=1.043 (23.2s)
+2026-11-22 08:20:01 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2851.7s] planted_sine_noise block_20_b30 s3: top1=0 planted=False nrmse=0.704 (23.4s)
+2026-11-22 08:20:24 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2874.8s] planted_sine_noise block_20_b50 s3: top1=0 planted=True nrmse=0.892 (23.1s)
+2026-11-22 08:20:47 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2897.4s] planted_sine_noise block_40_b10 s3: top1=0 planted=False nrmse=1.123 (22.7s)
+2026-11-22 08:21:10 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2920.7s] planted_sine_noise block_40_b30 s3: top1=0 planted=False nrmse=0.838 (23.2s)
+2026-11-22 08:21:33 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2943.6s] planted_sine_noise block_40_b50 s3: top1=0 planted=False nrmse=0.636 (23.0s)
+2026-11-22 08:21:56 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2966.5s] planted_sine_noise random_5 s4: top1=0 planted=True nrmse=1.031 (22.9s)
+2026-11-22 08:22:19 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 2990.5s] planted_sine_noise random_10 s4: top1=0 planted=False nrmse=0.980 (24.0s)
+2026-11-22 08:22:43 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3014.1s] planted_sine_noise random_20 s4: top1=0 planted=False nrmse=0.854 (23.6s)
+2026-11-22 08:23:06 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3037.2s] planted_sine_noise random_40 s4: top1=0 planted=False nrmse=0.989 (23.0s)
+2026-11-22 08:23:29 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3059.5s] planted_sine_noise block_10_b10 s4: top1=0 planted=False nrmse=1.366 (22.3s)
+2026-11-22 08:23:52 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3082.7s] planted_sine_noise block_10_b30 s4: top1=0 planted=False nrmse=1.615 (23.3s)
+2026-11-22 08:24:15 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3105.5s] planted_sine_noise block_10_b50 s4: top1=0 planted=False nrmse=0.702 (22.8s)
+2026-11-22 08:24:38 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3127.7s] planted_sine_noise block_20_b10 s4: top1=0 planted=False nrmse=1.317 (22.2s)
+2026-11-22 08:25:00 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3150.7s] planted_sine_noise block_20_b30 s4: top1=0 planted=False nrmse=1.144 (22.9s)
+2026-11-22 08:25:23 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3173.8s] planted_sine_noise block_20_b50 s4: top1=0 planted=False nrmse=1.448 (23.1s)
+2026-11-22 08:25:46 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3197.1s] planted_sine_noise block_40_b10 s4: top1=0 planted=False nrmse=1.151 (23.3s)
+2026-11-22 08:26:09 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3219.1s] planted_sine_noise block_40_b30 s4: top1=0 planted=False nrmse=1.235 (22.0s)
+2026-11-22 08:26:31 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3242.4s] planted_sine_noise block_40_b50 s4: top1=0 planted=True nrmse=1.216 (23.3s)
+2026-11-22 08:26:55 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3265.3s] planted_sine_noise clip_q99 s0: top1=0 planted=False nrmse=4.816 (22.9s)
+2026-11-22 08:27:18 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3288.4s] planted_sine_noise clip_q98 s0: top1=1 planted=False nrmse=4.597 (23.1s)
+2026-11-22 08:27:41 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3312.1s] planted_sine_noise clip_q95 s0: top1=1 planted=False nrmse=3.913 (23.7s)
+2026-11-22 08:28:04 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3335.5s] planted_cwru_normal random_5 s0: top1=0 planted=False nrmse=1.240 (23.4s)
+2026-11-22 08:28:28 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3359.1s] planted_cwru_normal random_10 s0: top1=0 planted=False nrmse=1.019 (23.5s)
+2026-11-22 08:28:51 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3382.7s] planted_cwru_normal random_20 s0: top1=0 planted=False nrmse=0.951 (23.6s)
+2026-11-22 08:29:15 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3406.9s] planted_cwru_normal random_40 s0: top1=0 planted=False nrmse=1.055 (24.2s)
+2026-11-22 08:29:39 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3430.0s] planted_cwru_normal block_10_b10 s0: top1=0 planted=False nrmse=0.894 (23.2s)
+2026-11-22 08:30:02 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3453.9s] planted_cwru_normal block_10_b30 s0: top1=0 planted=False nrmse=1.126 (23.8s)
+2026-11-22 08:30:26 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3477.3s] planted_cwru_normal block_10_b50 s0: top1=0 planted=False nrmse=1.277 (23.5s)
+2026-11-22 08:30:50 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3501.1s] planted_cwru_normal block_20_b10 s0: top1=0 planted=False nrmse=0.854 (23.7s)
+2026-11-22 08:31:13 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3523.3s] planted_cwru_normal block_20_b30 s0: top1=0 planted=False nrmse=0.915 (22.2s)
+2026-11-22 08:31:36 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3545.5s] planted_cwru_normal block_20_b50 s0: top1=0 planted=False nrmse=0.908 (22.2s)
+2026-11-22 08:31:58 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3569.0s] planted_cwru_normal block_40_b10 s0: top1=0 planted=False nrmse=1.156 (23.5s)
+2026-11-22 08:32:21 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3592.1s] planted_cwru_normal block_40_b30 s0: top1=0 planted=False nrmse=0.695 (23.1s)
+2026-11-22 08:32:44 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3614.7s] planted_cwru_normal block_40_b50 s0: top1=0 planted=False nrmse=0.824 (22.6s)
+2026-11-22 08:33:07 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3637.5s] planted_cwru_normal random_5 s1: top1=0 planted=False nrmse=1.193 (22.8s)
+2026-11-22 08:33:30 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3661.6s] planted_cwru_normal random_10 s1: top1=0 planted=False nrmse=1.018 (24.1s)
+2026-11-22 08:33:54 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3684.1s] planted_cwru_normal random_20 s1: top1=0 planted=False nrmse=1.011 (22.5s)
+2026-11-22 08:34:16 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3707.6s] planted_cwru_normal random_40 s1: top1=0 planted=False nrmse=0.958 (23.5s)
+2026-11-22 08:34:40 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3731.2s] planted_cwru_normal block_10_b10 s1: top1=0 planted=False nrmse=1.111 (23.6s)
+2026-11-22 08:35:03 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3754.9s] planted_cwru_normal block_10_b30 s1: top1=1 planted=True nrmse=0.191 (23.7s)
+2026-11-22 08:35:27 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3778.1s] planted_cwru_normal block_10_b50 s1: top1=1 planted=True nrmse=0.213 (23.2s)
+2026-11-22 08:35:50 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3801.7s] planted_cwru_normal block_20_b10 s1: top1=0 planted=False nrmse=1.216 (23.6s)
+2026-11-22 08:36:14 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3826.0s] planted_cwru_normal block_20_b30 s1: top1=0 planted=True nrmse=1.029 (24.3s)
+2026-11-22 08:36:38 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3849.9s] planted_cwru_normal block_20_b50 s1: top1=0 planted=False nrmse=1.117 (23.9s)
+2026-11-22 08:37:02 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3873.2s] planted_cwru_normal block_40_b10 s1: top1=0 planted=False nrmse=1.023 (23.3s)
+2026-11-22 08:37:25 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3896.8s] planted_cwru_normal block_40_b30 s1: top1=0 planted=False nrmse=1.074 (23.6s)
+2026-11-22 08:37:49 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3919.5s] planted_cwru_normal block_40_b50 s1: top1=0 planted=False nrmse=1.091 (22.7s)
+2026-11-22 08:38:12 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3943.3s] planted_cwru_normal random_5 s2: top1=0 planted=False nrmse=0.977 (23.8s)
+2026-11-22 08:38:36 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3967.9s] planted_cwru_normal random_10 s2: top1=0 planted=False nrmse=1.050 (24.7s)
+2026-11-22 08:39:00 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 3991.3s] planted_cwru_normal random_20 s2: top1=0 planted=False nrmse=0.986 (23.3s)
+2026-11-22 08:39:24 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4014.1s] planted_cwru_normal random_40 s2: top1=0 planted=False nrmse=1.056 (22.8s)
+2026-11-22 08:39:46 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4037.9s] planted_cwru_normal block_10_b10 s2: top1=0 planted=True nrmse=1.010 (23.8s)
+2026-11-22 08:40:10 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4060.4s] planted_cwru_normal block_10_b30 s2: top1=0 planted=False nrmse=1.424 (22.5s)
+2026-11-22 08:40:33 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4083.0s] planted_cwru_normal block_10_b50 s2: top1=0 planted=False nrmse=1.579 (22.6s)
+2026-11-22 08:40:55 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4105.7s] planted_cwru_normal block_20_b10 s2: top1=0 planted=False nrmse=0.889 (22.7s)
+2026-11-22 08:41:18 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4128.1s] planted_cwru_normal block_20_b30 s2: top1=0 planted=False nrmse=1.015 (22.5s)
+2026-11-22 08:41:40 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4151.1s] planted_cwru_normal block_20_b50 s2: top1=0 planted=False nrmse=1.141 (22.9s)
+2026-11-22 08:42:03 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4173.5s] planted_cwru_normal block_40_b10 s2: top1=0 planted=False nrmse=0.945 (22.5s)
+2026-11-22 08:42:26 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4195.7s] planted_cwru_normal block_40_b30 s2: top1=0 planted=False nrmse=0.882 (22.1s)
+2026-11-22 08:42:48 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4217.9s] planted_cwru_normal block_40_b50 s2: top1=0 planted=False nrmse=0.816 (22.2s)
+2026-11-22 08:43:10 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4239.8s] planted_cwru_normal random_5 s3: top1=1 planted=True nrmse=0.701 (21.9s)
+2026-11-22 08:43:32 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4263.5s] planted_cwru_normal random_10 s3: top1=0 planted=False nrmse=1.048 (23.7s)
+2026-11-22 08:43:56 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4286.3s] planted_cwru_normal random_20 s3: top1=0 planted=False nrmse=0.941 (22.7s)
+2026-11-22 08:44:19 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4310.7s] planted_cwru_normal random_40 s3: top1=0 planted=False nrmse=0.934 (24.4s)
+2026-11-22 08:44:43 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4333.9s] planted_cwru_normal block_10_b10 s3: top1=0 planted=False nrmse=0.991 (23.2s)
+2026-11-22 08:45:06 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4356.9s] planted_cwru_normal block_10_b30 s3: top1=0 planted=True nrmse=0.836 (22.9s)
+2026-11-22 08:45:29 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4379.4s] planted_cwru_normal block_10_b50 s3: top1=0 planted=False nrmse=1.437 (22.5s)
+2026-11-22 08:45:52 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4402.6s] planted_cwru_normal block_20_b10 s3: top1=0 planted=False nrmse=0.928 (23.2s)
+2026-11-22 08:46:15 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4424.4s] planted_cwru_normal block_20_b30 s3: top1=0 planted=False nrmse=1.088 (21.9s)
+2026-11-22 08:46:37 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4447.5s] planted_cwru_normal block_20_b50 s3: top1=0 planted=False nrmse=1.037 (23.0s)
+2026-11-22 08:47:00 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4469.9s] planted_cwru_normal block_40_b10 s3: top1=0 planted=False nrmse=1.058 (22.5s)
+2026-11-22 08:47:22 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4492.3s] planted_cwru_normal block_40_b30 s3: top1=0 planted=False nrmse=1.032 (22.3s)
+2026-11-22 08:47:45 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4514.5s] planted_cwru_normal block_40_b50 s3: top1=0 planted=False nrmse=1.104 (22.2s)
+2026-11-22 08:48:07 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4537.5s] planted_cwru_normal random_5 s4: top1=0 planted=False nrmse=0.877 (23.0s)
+2026-11-22 08:48:30 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4560.0s] planted_cwru_normal random_10 s4: top1=0 planted=False nrmse=0.888 (22.4s)
+2026-11-22 08:48:52 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4583.1s] planted_cwru_normal random_20 s4: top1=0 planted=False nrmse=1.104 (23.1s)
+2026-11-22 08:49:15 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4606.2s] planted_cwru_normal random_40 s4: top1=0 planted=False nrmse=1.020 (23.1s)
+2026-11-22 08:49:38 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4629.0s] planted_cwru_normal block_10_b10 s4: top1=0 planted=False nrmse=0.929 (22.8s)
+2026-11-22 08:50:01 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4652.2s] planted_cwru_normal block_10_b30 s4: top1=1 planted=True nrmse=0.173 (23.2s)
+2026-11-22 08:50:24 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4675.9s] planted_cwru_normal block_10_b50 s4: top1=1 planted=True nrmse=0.189 (23.7s)
+2026-11-22 08:50:48 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4699.2s] planted_cwru_normal block_20_b10 s4: top1=0 planted=False nrmse=1.022 (23.3s)
+2026-11-22 08:51:11 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4722.5s] planted_cwru_normal block_20_b30 s4: top1=0 planted=False nrmse=1.238 (23.3s)
+2026-11-22 08:51:35 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4746.5s] planted_cwru_normal block_20_b50 s4: top1=1 planted=True nrmse=0.170 (24.0s)
+2026-11-22 08:51:59 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4770.4s] planted_cwru_normal block_40_b10 s4: top1=0 planted=False nrmse=1.024 (23.9s)
+2026-11-22 08:52:23 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4793.4s] planted_cwru_normal block_40_b30 s4: top1=0 planted=False nrmse=0.886 (23.0s)
+2026-11-22 08:52:46 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4815.8s] planted_cwru_normal block_40_b50 s4: top1=0 planted=False nrmse=1.097 (22.4s)
+2026-11-22 08:53:08 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4838.8s] planted_cwru_normal clip_q99 s0: top1=0 planted=False nrmse=4.799 (23.0s)
+2026-11-22 08:53:31 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4862.0s] planted_cwru_normal clip_q98 s0: top1=0 planted=False nrmse=4.587 (23.2s)
+2026-11-22 08:53:54 [WARNING]: ‼️ saving_path not given. Model files and tensorboard file will not be saved.
+[ 4884.5s] planted_cwru_normal clip_q95 s0: top1=0 planted=False nrmse=3.875 (22.5s)
+{"done": true, "seconds": 4884.490376234055}

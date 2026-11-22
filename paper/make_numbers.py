@@ -148,7 +148,7 @@ with open(os.path.join(ROOT, "paper", "figures", "alt_text.txt"), "w") as fh:
 
 # ---------------- C2 ----------------
 c2 = []
-for fn in ("c2_cwru.csv", "c2_planted.csv"):
+for fn in ("c2_cwru.csv", "c2_planted.csv", "c2_saits_cwru.csv", "c2_saits_planted.csv"):
     p = os.path.join(RES, "c2", fn)
     if os.path.exists(p):
         c2 += list(csv.DictReader(open(p)))
@@ -183,7 +183,7 @@ for grp in ("cwru", "planted"):
     for f in ("random", "block", "clip"):
         F = f.capitalize()
         for meth, mk in [("exclusion", "Ex"), ("linear", "Lin"), ("spline", "Spl"), ("locf", "Locf"),
-                         ("mdms_window", "Win"), ("mdms_declared", "Decl"), ("mdms_ours", "Ours")]:
+                         ("saits", "Sai"), ("mdms_window", "Win"), ("mdms_declared", "Decl"), ("mdms_ours", "Ours")]:
             d = table.get((grp, f, meth))
             if not d:
                 continue
@@ -227,6 +227,12 @@ for name, args in {
     "PlRandFivePlOurs": ("planted", "random_5", "mdms_ours", "planted"),
     "PlRandFivePlSpl": ("planted", "random_5", "spline", "planted"),
     "PlRandFivePlLin": ("planted", "random_5", "linear", "planted"),
+    "PlRandFivePlSai": ("planted", "random_5", "saits", "planted"),
+    "PlClipFivePlSai": ("planted", "clip_q95", "saits", "planted"),
+    "PlBlockTwentyThirtyPlSai": ("planted", "block_20_b30", "saits", "planted"),
+    "CwRandFiveTopSai": ("cwru", "random_5", "saits", "top1"),
+    "CwClipFiveTopSai": ("cwru", "clip_q95", "saits", "top1"),
+    "CwClipFiveTopLin": ("cwru", "clip_q95", "linear", "top1"),
     "PlRandFortyPlSpl": ("planted", "random_40", "spline", "planted"),
     "PlRandFortyPlLin": ("planted", "random_40", "linear", "planted"),
     "PlBlockTwentyThirtyPlSpl": ("planted", "block_20_b30", "spline", "planted"),
