@@ -1,0 +1,77 @@
+{
+  "job_id": "smoke-20261127T095508Z-9e057a1d",
+  "job": "smoke",
+  "requested_sha": "9e057a1dbf8fb0eb588d6730cf261843a8c6ad2a",
+  "branch": "kaggle/smoke-3",
+  "started_unix": 1795773314.9960594,
+  "steps": [
+    {
+      "cmd": "git clone --quiet --branch kaggle/smoke-3 https://github.com/HoaPNG520/RAID_2027 /kaggle/temp/repo",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 0.722,
+      "log": "00_clone.log"
+    },
+    {
+      "cmd": "git checkout --quiet 9e057a1dbf8fb0eb588d6730cf261843a8c6ad2a",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 0.032,
+      "log": "01_checkout.log"
+    },
+    {
+      "cmd": "nvidia-smi; nvcc --version; g++ --version | head -1; python3 -c 'import numpy, scipy; print(numpy.__version__, scipy.__version__)'",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 0.868,
+      "log": "02_env.log",
+      "name": "env"
+    },
+    {
+      "cmd": "make all",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 8.237,
+      "log": "03_build.log",
+      "name": "build"
+    },
+    {
+      "cmd": "python3 -I -m pytest -q -m fast tests/",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 56.783,
+      "log": "04_unit_tests.log",
+      "name": "unit_tests"
+    },
+    {
+      "cmd": "mkdir -p out && sh scripts/sanitize.sh bin/mdms_gpu out/sanitizer.txt",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 21.624,
+      "log": "05_sanitizer.log",
+      "name": "sanitizer"
+    },
+    {
+      "cmd": "mkdir -p out && python3 -I gpu/bench.py --suite agree --gpu bin/mdms_gpu --twin bin/mdms_twin --out out/agree.jsonl",
+      "rc": 0,
+      "timed_out": false,
+      "seconds": 53.105,
+      "log": "06_agree_gpu_vs_twin.log",
+      "name": "agree_gpu_vs_twin"
+    }
+  ],
+  "ok": true,
+  "gpus": [
+    "Tesla T4, 15360 MiB, 580.178.04",
+    "Tesla T4, 15360 MiB, 580.178.04"
+  ],
+  "nvcc_version": [
+    "Build cuda_13.0.r13.0/compiler.36424714_0"
+  ],
+  "python": "3.13.16",
+  "checked_out_sha": "9e057a1dbf8fb0eb588d6730cf261843a8c6ad2a",
+  "collected": [
+    "out/"
+  ],
+  "seconds": 141.491
+}

@@ -1,0 +1,84 @@
+[{"stream_name":"stdout","time":142.460099836,"data":"{\n"}
+,{"stream_name":"stdout","time":142.460143913,"data":"  \"job_id\": \"smoke-20261127T095508Z-9e057a1d\",\n"}
+,{"stream_name":"stdout","time":142.460148542,"data":"  \"job\": \"smoke\",\n"}
+,{"stream_name":"stdout","time":142.460151353,"data":"  \"requested_sha\": \"9e057a1dbf8fb0eb588d6730cf261843a8c6ad2a\",\n"}
+,{"stream_name":"stdout","time":142.460154078,"data":"  \"branch\": \"kaggle/smoke-3\",\n"}
+,{"stream_name":"stdout","time":142.460156672,"data":"  \"started_unix\": 1795773314.9960594,\n"}
+,{"stream_name":"stdout","time":142.460159255,"data":"  \"steps\": [\n"}
+,{"stream_name":"stdout","time":142.460161686,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.460164144,"data":"      \"cmd\": \"git clone --quiet --branch kaggle/smoke-3 https://github.com/HoaPNG520/RAID_2027 /kaggle/temp/repo\",\n"}
+,{"stream_name":"stdout","time":142.460167028,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":142.460169495,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":142.460171961,"data":"      \"seconds\": 0.722,\n"}
+,{"stream_name":"stdout","time":142.460174392,"data":"      \"log\": \"00_clone.log\"\n"}
+,{"stream_name":"stdout","time":142.460176971,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.460179322,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.46018168,"data":"      \"cmd\": \"git checkout --quiet 9e057a1dbf8fb0eb588d6730cf261843a8c6ad2a\",\n"}
+,{"stream_name":"stdout","time":142.4601843,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":142.460186749,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":142.460189191,"data":"      \"seconds\": 0.032,\n"}
+,{"stream_name":"stdout","time":142.460191598,"data":"      \"log\": \"01_checkout.log\"\n"}
+,{"stream_name":"stdout","time":142.460194098,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.460196486,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.460198876,"data":"      \"cmd\": \"nvidia-smi; nvcc --version; g++ --version | head -1; python3 -c 'import numpy, scipy; print(numpy.__version__, scipy.__version__)'\",\n"}
+,{"stream_name":"stdout","time":142.460201591,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":142.460203981,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":142.460206376,"data":"      \"seconds\": 0.868,\n"}
+,{"stream_name":"stdout","time":142.460208801,"data":"      \"log\": \"02_env.log\",\n"}
+,{"stream_name":"stdout","time":142.460211254,"data":"      \"name\": \"env\"\n"}
+,{"stream_name":"stdout","time":142.460213758,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.46021606,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.460218402,"data":"      \"cmd\": \"make all\",\n"}
+,{"stream_name":"stdout","time":142.460220893,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":142.460223284,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":142.460225716,"data":"      \"seconds\": 8.237,\n"}
+,{"stream_name":"stdout","time":142.460228126,"data":"      \"log\": \"03_build.log\",\n"}
+,{"stream_name":"stdout","time":142.460230758,"data":"      \"name\": \"build\"\n"}
+,{"stream_name":"stdout","time":142.460233249,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.460235554,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.460237932,"data":"      \"cmd\": \"python3 -I -m pytest -q -m fast tests/\",\n"}
+,{"stream_name":"stdout","time":142.460240442,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":142.460242826,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":142.460249327,"data":"      \"seconds\": 56.783,\n"}
+,{"stream_name":"stdout","time":142.460251956,"data":"      \"log\": \"04_unit_tests.log\",\n"}
+,{"stream_name":"stdout","time":142.460254462,"data":"      \"name\": \"unit_tests\"\n"}
+,{"stream_name":"stdout","time":142.460256924,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.460259278,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.460261633,"data":"      \"cmd\": \"mkdir -p out \u0026\u0026 sh scripts/sanitize.sh bin/mdms_gpu out/sanitizer.txt\",\n"}
+,{"stream_name":"stdout","time":142.4602649,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":142.460267262,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":142.460269689,"data":"      \"seconds\": 21.624,\n"}
+,{"stream_name":"stdout","time":142.460272148,"data":"      \"log\": \"05_sanitizer.log\",\n"}
+,{"stream_name":"stdout","time":142.460274634,"data":"      \"name\": \"sanitizer\"\n"}
+,{"stream_name":"stdout","time":142.460278,"data":"    },\n"}
+,{"stream_name":"stdout","time":142.460280326,"data":"    {\n"}
+,{"stream_name":"stdout","time":142.460282739,"data":"      \"cmd\": \"mkdir -p out \u0026\u0026 python3 -I gpu/bench.py --suite agree --gpu bin/mdms_gpu --twin bin/mdms_twin --out out/agree.jsonl\",\n"}
+,{"stream_name":"stdout","time":142.460285538,"data":"      \"rc\": 0,\n"}
+,{"stream_name":"stdout","time":142.46028791,"data":"      \"timed_out\": false,\n"}
+,{"stream_name":"stdout","time":142.460290343,"data":"      \"seconds\": 53.105,\n"}
+,{"stream_name":"stdout","time":142.460292806,"data":"      \"log\": \"06_agree_gpu_vs_twin.log\",\n"}
+,{"stream_name":"stdout","time":142.460295325,"data":"      \"name\": \"agree_gpu_vs_twin\"\n"}
+,{"stream_name":"stdout","time":142.460297815,"data":"    }\n"}
+,{"stream_name":"stdout","time":142.460300127,"data":"  ],\n"}
+,{"stream_name":"stdout","time":142.460302478,"data":"  \"ok\": true,\n"}
+,{"stream_name":"stdout","time":142.460304878,"data":"  \"gpus\": [\n"}
+,{"stream_name":"stdout","time":142.460307292,"data":"    \"Tesla T4, 15360 MiB, 580.178.04\",\n"}
+,{"stream_name":"stdout","time":142.460309808,"data":"    \"Tesla T4, 15360 MiB, 580.178.04\"\n"}
+,{"stream_name":"stdout","time":142.460312248,"data":"  ],\n"}
+,{"stream_name":"stdout","time":142.460314571,"data":"  \"nvcc_version\": [\n"}
+,{"stream_name":"stdout","time":142.460317008,"data":"    \"Build cuda_13.0.r13.0/compiler.36424714_0\"\n"}
+,{"stream_name":"stdout","time":142.460319505,"data":"  ],\n"}
+,{"stream_name":"stdout","time":142.460321978,"data":"  \"python\": \"3.13.16\",\n"}
+,{"stream_name":"stdout","time":142.460324517,"data":"  \"checked_out_sha\": \"9e057a1dbf8fb0eb588d6730cf261843a8c6ad2a\",\n"}
+,{"stream_name":"stdout","time":142.46032712,"data":"  \"collected\": [\n"}
+,{"stream_name":"stdout","time":142.460338367,"data":"    \"out/\"\n"}
+,{"stream_name":"stdout","time":142.460340957,"data":"  ],\n"}
+,{"stream_name":"stdout","time":142.460343319,"data":"  \"seconds\": 141.491\n"}
+,{"stream_name":"stdout","time":142.460345771,"data":"}\n"}
+,{"stream_name":"stderr","time":144.755615402,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":144.755646773,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":145.001263668,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":145.001292018,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":145.879346258,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":146.895077771,"data":"[NbConvertApp] Writing 300145 bytes to __results__.html\n"}
+]
