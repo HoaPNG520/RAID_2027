@@ -1,0 +1,18 @@
+# CPU reproduction: reference implementation, audits, comparison, tests
+numpy>=1.24
+scipy>=1.10          # cubic-spline imputation baseline in c2/c2_experiment.py
+pytest>=7.0          # python3 -m pytest -q -m fast tests/
+
+# Figures and paper macros (paper/make_figures.py, paper/make_numbers.py)
+matplotlib>=3.7
+
+# Optional, each needed by one experiment only:
+#   pypots>=0.2, torch>=2.0   SAITS learned-imputer baseline  (c2/c2_saits.py)
+#   stumpy>=1.13, numba       STUMPY comparison               (gpu/bench.py --stumpy; the
+#                             bench and bench2 Kaggle jobs pip-install it themselves)
+#   cupy-cuda12x              CuPy launcher for the kernels   (gpu/mdms_cupy.py; the cupy
+#                             Kaggle job pip-installs it itself)
+# The CUDA binary needs nvcc (CUDA >= 11) and an sm_75 or newer GPU; the CPU twin needs only g++.
+
+# Last verified with: Python 3.13.18, numpy 2.5.3, scipy 1.18.1, matplotlib 3.11.2,
+# pytest 9.1.1, g++ 13.3.0. GPU results: CUDA 13.0, Tesla T4 (sm_75), stumpy 1.14.1.

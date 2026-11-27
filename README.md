@@ -19,6 +19,9 @@ This repository accompanies a paper under review. It contains:
   - `verify_violations.py`, `verify_wide.py`: independent re-checks of reported violations
   - `wide_audit.py`: 40 CWRU recordings (4 speeds, 3 fault types x 3 sizes, normal) with limits
     taken from an earlier part of each recording, with and without a safety margin
+  - `pamap2_case.py`: real saturation rather than simulated. Each PAMAP2 IMU carries a +-6 g and
+    a +-16 g accelerometer side by side; during running and rope jumping the +-6 g one clips, and
+    the co-located +-16 g one gives the ground truth for the values it loses
 - **`c2/`**: comparison with exclusion and imputation (linear, spline, LOCF).
 - **`gpu/`**: GPU-vs-reference checks (`compare.py`) and the speed benchmark (`bench.py`).
 - **`kaggle/`**: runs GPU jobs on Kaggle (T4 x2) from a local machine and fetches the results.
@@ -27,7 +30,7 @@ This repository accompanies a paper under review. It contains:
 ## Quick start (CPU)
 
 ```
-pip install numpy scipy pytest
+pip install -r requirements.txt                   # numpy, scipy, pytest, matplotlib
 python3 scripts/fetch_cwru.py --out data          # 4 CWRU recordings, checksummed
 python3 scripts/fetch_cwru.py --out data_wide --set wide   # 40 recordings for the wider audit
 python3 -m pytest -q -m fast tests/               # about 20 s
@@ -47,6 +50,7 @@ variable `KAGGLE_USERNAME`); results land on the branch `gpu-results`. Or locall
 ```
 make all                                          # needs nvcc; builds bin/mdms_gpu (sm_75)
 export KAGGLE_USERNAME=<your kaggle username>
+export KAGGLE_API_TOKEN=<access token from the Kaggle settings UI>   # or ~/.kaggle/access_token
 python3 kaggle/kaggle_job.py list
 python3 kaggle/kaggle_job.py run smoke --approved     # build, unit tests, compute-sanitizer, GPU vs CPU twin
 python3 kaggle/kaggle_job.py run validate --approved  # T5/T6 and float32 numerics on the GPU
@@ -60,6 +64,19 @@ python3 kaggle/kaggle_job.py run cupy --approved      # CuPy launcher vs. the C+
 - uploads one generated script, which clones this repository at the exact commit;
 - validates the returned `job_summary.json` (job id, commit, GPU, exit codes);
 - keeps a weekly GPU-hour ledger in `bench/quota.json`.
+
+## Paper numbers and figures
+
+Every number quoted in the paper is a macro generated from the files in `results/`; none is
+typed by hand. Run the figures first -- `make_numbers.py` reads the alt text that
+`make_figures.py` writes:
+
+```
+python3 -I paper/make_figures.py      # paper/figures/*.pdf, *.png and alt_text.json
+python3 -I paper/make_numbers.py      # paper/numbers.tex (519 macros)
+```
+
+`results/README.md` maps each result file to the section that uses it.
 
 ## Command line
 
@@ -80,3 +97,13 @@ bin/mdms_gpu --input series.f64 --n N --m M [--precision f64|f32c|f32]
 ## Data
 
 The CWRU Bearing Data Center recordings are downloaded from a public `.npz` mirror by `scripts/fetch_cwru.py`, with checksums verified. They are not redistributed here.
+
+PAMAP2 (Reiss and Stricker, ISWC 2012; UCI Machine Learning Repository, CC BY 4.0) is not
+downloadable without agreeing to the UCI terms, so fetch the zip yourself from
+<https://archive.ics.uci.edu/dataset/231/pamap2+physical+activity+monitoring> and extract the
+accelerometer channels:
+
+```
+python3 -I scripts/extract_pamap2.py --zip PAMAP2.zip --out data_pamap2   # + MANIFEST.json of sha256
+python3 -I audit/pamap2_case.py --data-dir data_pamap2 --out results/pamap2/pamap2_case.csv
+```

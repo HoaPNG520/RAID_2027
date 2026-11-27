@@ -23,7 +23,7 @@ and the audit compares the MDMS bound with the exact distances of T_true under:
 Defaults: segments of n = 1000 samples (10 s at 100 Hz), windows of m = 50 (0.5 s, about one
 footstep).
 
-Usage: python3 -I audit/pamap2_case.py --data-dir pamap2_out --out results/pamap2/pamap2_case.csv
+Usage: python3 -I audit/pamap2_case.py --data-dir data_pamap2 --out results/pamap2/pamap2_case.csv
 """
 from __future__ import annotations
 

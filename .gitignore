@@ -1,5 +1,8 @@
 bin/
 data/
+data_wide/
+data_pamap2/
+pamap2_out/
 kaggle/build/
 bench/raw/
 paper/*
