@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Turn the audit CSVs into the markdown tables used in RESULTS_C3.md."""
+"""Turn an audit CSV into the markdown tables kept as results/**/c3_tables*.md.
+Usage: python3 -I audit/summarize.py results/v2/c3_audit_n3000_m100.csv > results/v2/c3_tables.md"""
 import csv, collections, sys
 a = list(csv.DictReader(open(sys.argv[1])))
 by = collections.defaultdict(dict)

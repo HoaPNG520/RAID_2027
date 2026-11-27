@@ -28,7 +28,6 @@ def lb_direct(x, bx, y, by, lim_x=None, lim_y=None):
     lim_* = (lo, hi) bounds for the missing values; None -> window's observed range."""
     x, y = np.asarray(x, float), np.asarray(y, float)
     bx, by = np.asarray(bx, bool), np.asarray(by, bool)
-    m = len(x)
     if not bx.any() or not by.any():
         return np.inf
     if (bx.all() and x.var() <= 1e-12) or (by.all() and y.var() <= 1e-12):

@@ -87,7 +87,6 @@ def modes_for(Tc):
 # --------------------------------------------------------------------------- #
 def audit_one(Tc, mask, m, modes, excl=0.25, topk=10, rtol=1e-9, atol=1e-9):
     """Audit one series + mask. Returns {mode: metrics dict}."""
-    T_obs = np.where(mask, Tc, np.nan)
     T_in = np.where(mask, Tc, 0.0)
     os_ = M.oracle_stats(Tc, m)
     wss = {k: M.window_stats(T_in, mask, m, v[0], v[1], *(tuple(v[2:]) or (False,)))

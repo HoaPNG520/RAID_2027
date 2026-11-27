@@ -430,11 +430,29 @@ if os.path.exists(cc):
     put("CupyFSixtyFourDiff", sci(max(r["max_rel_diff"] for r in C if r["precision"] == "f64")))
 
 # ---------------- GPU validation (smoke + validate jobs) ----------------
-ag = os.path.join(RES, "gpu", "agree_smoke.jsonl")
+# The headline agreement macros must describe the code as it ships. agree_smoke.jsonl was
+# produced before the kernels moved from mdms_gpu.cu into mdms_kernels.cuh (so that the CuPy
+# launcher can compile the same source); agree_after_refactor.jsonl is the re-run on the
+# refactored code and is the file the paper quotes. Both are reported so the claim stays
+# checkable either way. src/ and gpu/ are unchanged since the re-run.
+def agree_counts(path):
+    A = [json.loads(l) for l in open(path) if l.strip()]
+    return len(A), sum(r["bitwise_equal_frac"] == 1.0 and r["index_equal_frac"] == 1.0 for r in A)
+
+
+ag = os.path.join(RES, "gpu", "agree_after_refactor.jsonl")
+ag_pre = os.path.join(RES, "gpu", "agree_smoke.jsonl")
 if os.path.exists(ag):
-    A = [json.loads(l) for l in open(ag) if l.strip()]
-    put("GpuAgreeCases", str(len(A)))
-    put("GpuAgreeBitwise", str(sum(r["bitwise_equal_frac"] == 1.0 and r["index_equal_frac"] == 1.0 for r in A)))
+    cases, bitwise = agree_counts(ag)
+    put("GpuAgreeCases", str(cases))
+    put("GpuAgreeBitwise", str(bitwise))
+if os.path.exists(ag_pre):
+    cases, bitwise = agree_counts(ag_pre)
+    put("GpuAgreePreRefactorCases", str(cases))
+    put("GpuAgreePreRefactorBitwise", str(bitwise))
+    if not os.path.exists(ag):   # no re-run on record: the pre-refactor run is all there is
+        put("GpuAgreeCases", str(cases))
+        put("GpuAgreeBitwise", str(bitwise))
 t5g = os.path.join(RES, "gpu", "t5_gpu.jsonl")
 if os.path.exists(t5g):
     G5 = [json.loads(l) for l in open(t5g) if l.strip()]

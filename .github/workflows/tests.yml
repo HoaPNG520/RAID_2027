@@ -1,0 +1,44 @@
+# Checks that need no GPU, on every push and pull request: the fast test suite, the CPU twin
+# build, and the paper's numbers and figures (both read only committed result files, so no
+# dataset is needed), plus a compile-only check of the CUDA code for sm_75. Running the kernels
+# needs a real T4 and is done by kaggle.yml.
+name: tests
+on:
+  push:
+    branches-ignore: ["kaggle/**", "gpu-results"]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python3 -m pip install --quiet numpy scipy pytest matplotlib
+      - name: Fast test suite
+        run: python3 -m pytest -q -m fast tests/
+      - name: Build the CPU twin
+        run: make bin/mdms_twin
+      - name: Twin vs the Python reference (T5/T6)
+        run: python3 -I gpu/compare.py --bin bin/mdms_twin --suite t5 --out /tmp/t5_twin.jsonl
+      - name: Paper figures, then numbers
+        run: |
+          python3 -I paper/make_figures.py
+          python3 -I paper/make_numbers.py
+
+  cuda-compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install nvcc (no GPU needed to compile)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends nvidia-cuda-toolkit
+      - name: Compile the kernels for sm_75
+        run: sh scripts/compile_check_cuda.sh
