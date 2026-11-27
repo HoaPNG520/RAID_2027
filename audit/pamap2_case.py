@@ -118,7 +118,7 @@ def segments(rec, imu, axis, n, max_per_series):
                 if sat.sum() < 2:
                     continue
                 out.append((aid, s, seg6, seg16, x16[s - HIST:s], sat))
-                if len(out) >= max_per_series:
+                if max_per_series and len(out) >= max_per_series:
                     return out
     return out
 
@@ -129,7 +129,8 @@ def main(argv=None):
     ap.add_argument("--out", required=True)
     ap.add_argument("--n", type=int, default=1000)
     ap.add_argument("--m", type=int, default=50)
-    ap.add_argument("--max-per-series", type=int, default=5)
+    ap.add_argument("--max-per-series", type=int, default=0,
+                    help="cap on segments per sensor axis (0 = no cap: every qualifying segment)")
     a = ap.parse_args(argv)
     files = sorted(glob.glob(os.path.join(a.data_dir, "*.npz")))
     if not files:
